@@ -2,29 +2,96 @@
 
 ![image](https://github.com/user-attachments/assets/6335eded-1ce5-41f1-8fbd-7921804f3f67)
 
-Integrantes
+## 👥 Integrantes
 
-Gabriel Camargo – RM557879
-Kauan Felipe – RM557954
-Vinicius Alves – RM551939
+- **Gabriel Camargo** – RM557879  
+- **Kauan Felipe** – RM557954  
+- **Vinicius Alves** – RM551939  
 
-Escopo do Projeto
+---
 
-1. Descrição Detalhada do Problema 
-A Mottu enfrenta desafios operacionais na gestão e localização das motos dentro dos pátios de suas mais de 100 filiais. Atualmente, esse controle é feito de forma manual, o que gera ineficiências, erros humanos e dificuldades na escala. É necessário implementar um sistema automatizado que permita a localização precisa das motos, reduza os custos operacionais e aumente a segurança e agilidade nas operações.
+## 📌 Escopo do Projeto
 
-2. Objetivos da Solução Idealizada.
-   
-  •	Identificar com precisão a localização das motos dentro dos pátios.
+### ❗ Descrição Detalhada do Problema
 
-  •	Fornece visualização em tempo real da disposição das motos.
+A Mottu enfrenta desafios operacionais na **gestão e localização de motos** nos pátios de mais de 100 filiais. Atualmente, esse controle é feito **manualmente**, o que resulta em:
 
-  •	Criar um modelo digital interativo adaptável a diferentes pátios.
+- Ineficiência no gerenciamento.
+- Alta propensão a erros humanos.
+- Dificuldade de escalabilidade operacional.
 
-  •	Desenvolver interface web/mobile para acesso rápido e intuitivo.
+---
 
-  •	Integrar sensores IoT das motos para coleta de dados adicionais.
+### 🎯 Objetivos da Solução Idealizada
 
-  •	Escalar a solução para múltiplas filiais no Brasil e México.
+- 📍 **Identificar com precisão** a localização de cada moto nos pátios.
+- 🗺️ Fornecer **visualização em tempo real** da disposição das motos.
+- 🧩 Criar um **modelo digital interativo e adaptável** para diferentes pátios.
+- 📱 Desenvolver **interface web/mobile** de acesso rápido e intuitivo.
+- 📡 **Integrar sensores IoT** às motos para coleta de dados adicionais (posição, status, alertas).
+- 🌎 Permitir **escalabilidade** da solução para todas as filiais no Brasil e México.
 
-Instruções de execução:
+---
+
+## 🚀 Instruções de Execução
+
+### 🛠️ Pré-requisitos
+
+- Java 17 ou superior instalado
+- Maven instalado
+- Oracle Database configurado e em execução
+- Postman ou `curl` para testes (opcional)
+- IDE (IntelliJ, Eclipse ou VSCode com suporte Java)
+
+---
+
+### 🔧 Setup do Projeto
+
+1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/seu-usuario/projeto-mottu.git
+cd projeto-mottu
+```
+
+2. **Configure o banco Oracle:**
+
+- Execute os scripts SQL disponíveis na pasta `/database` para criar as tabelas e inserir os dados de exemplo.
+- Certifique-se de que o Oracle esteja acessível via JDBC com as credenciais corretas.
+
+3. **Configure o `application.properties`:**
+
+```properties
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XE
+spring.datasource.username=SEU_USUARIO
+spring.datasource.password=SUA_SENHA
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
+```
+
+4. **Execute o projeto:**
+
+```bash
+./mvnw spring-boot:run
+```
+
+> O servidor será iniciado em `http://localhost:8080`.
+
+---
+
+### 📫 Endpoints Principais
+
+- `GET /api/filiais` – Lista todas as filiais  
+- `POST /api/filiais` – Cria uma nova filial  
+- `PUT /api/filiais/{id}` – Atualiza os dados de uma filial  
+- `DELETE /api/filiais/{id}` – Remove uma filial  
+
+(Endpoints de motos também estão disponíveis se implementados.)
+
+---
+
+### 📎 Observações
+
+- Autenticação básica está ativada (`admin:admin123` por padrão).
+- Use o Postman ou `curl` com as credenciais acima para consumir a API.
