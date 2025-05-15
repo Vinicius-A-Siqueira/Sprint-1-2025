@@ -13,17 +13,18 @@ Escopo do Projeto
 1. Descrição Detalhada do Problema 
 A Mottu enfrenta desafios operacionais na gestão e localização das motos dentro dos pátios de suas mais de 100 filiais. Atualmente, esse controle é feito de forma manual, o que gera ineficiências, erros humanos e dificuldades na escala. É necessário implementar um sistema automatizado que permita a localização precisa das motos, reduza os custos operacionais e aumente a segurança e agilidade nas operações.
 
-2. Objetivos da Solução Idealizada .
-•	Identificar com precisão a localização das motos dentro dos pátios.
+2. Objetivos da Solução Idealizada.
+   
+  •	Identificar com precisão a localização das motos dentro dos pátios.
 
-•	Fornece visualização em tempo real da disposição das motos.
+  •	Fornece visualização em tempo real da disposição das motos.
 
-•	Criar um modelo digital interativo adaptável a diferentes pátios.
+  •	Criar um modelo digital interativo adaptável a diferentes pátios.
 
-•	Desenvolver interface web/mobile para acesso rápido e intuitivo.
+  •	Desenvolver interface web/mobile para acesso rápido e intuitivo.
 
-•	Integrar sensores IoT das motos para coleta de dados adicionais.
+  •	Integrar sensores IoT das motos para coleta de dados adicionais.
 
-•	Escalar a solução para múltiplas filiais no Brasil e México.
+  •	Escalar a solução para múltiplas filiais no Brasil e México.
 
 Instruções de execução:
