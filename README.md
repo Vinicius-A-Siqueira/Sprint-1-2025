@@ -32,10 +32,3 @@ A Mottu enfrenta desafios operacionais na **gestão e localização de motos** n
 - 🌎 Permitir **escalabilidade** da solução para todas as filiais no Brasil e México.
 
 
-
----
-
-### 📎 Observações
-
-- Autenticação básica está ativada (`admin:admin123` por padrão).
-- Use o Postman ou `curl` com as credenciais acima para consumir a API.
