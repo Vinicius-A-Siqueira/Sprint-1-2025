@@ -62,12 +62,16 @@ cd projeto-mottu
 3. **Configure o `application.properties`:**
 
 ```properties
-spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XE
-spring.datasource.username=SEU_USUARIO
-spring.datasource.password=SUA_SENHA
-spring.jpa.hibernate.ddl-auto=none
+spring.datasource.url=jdbc:oracle:thin:@//oracle.fiap.com.br:1521/orcl
+spring.datasource.username=rm551939
+spring.datasource.password=270399
+spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.use_sql_comments=true
+
 ```
 
 4. **Execute o projeto:**
