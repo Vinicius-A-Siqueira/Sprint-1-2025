@@ -1,1 +1,50 @@
-
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Fleet.API", "Mottu.Fleet.API\Mottu.Fleet.API.csproj", "{9483A086-3B13-4517-BE7F-C558A0AD8E62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BAF246D9-436F-4329-B32E-350FC151DF4C} = {BAF246D9-436F-4329-B32E-350FC151DF4C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Fleet.Application", "Mottu.Fleet.Application\Mottu.Fleet.Application.csproj", "{BAF246D9-436F-4329-B32E-350FC151DF4C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{53757A30-1F96-437B-9E7B-7113CFAC0CF0} = {53757A30-1F96-437B-9E7B-7113CFAC0CF0}
+		{C5D4033E-3964-4712-8C95-33B4846BC351} = {C5D4033E-3964-4712-8C95-33B4846BC351}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Fleet.Domain", "Mottu.Fleet.Domain\Mottu.Fleet.Domain.csproj", "{53757A30-1F96-437B-9E7B-7113CFAC0CF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mottu.Fleet.Infrastructure", "Mottu.Fleet.Infrastructure\Mottu.Fleet.Infrastructure.csproj", "{C5D4033E-3964-4712-8C95-33B4846BC351}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9483A086-3B13-4517-BE7F-C558A0AD8E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9483A086-3B13-4517-BE7F-C558A0AD8E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9483A086-3B13-4517-BE7F-C558A0AD8E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9483A086-3B13-4517-BE7F-C558A0AD8E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAF246D9-436F-4329-B32E-350FC151DF4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAF246D9-436F-4329-B32E-350FC151DF4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAF246D9-436F-4329-B32E-350FC151DF4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAF246D9-436F-4329-B32E-350FC151DF4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53757A30-1F96-437B-9E7B-7113CFAC0CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53757A30-1F96-437B-9E7B-7113CFAC0CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53757A30-1F96-437B-9E7B-7113CFAC0CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53757A30-1F96-437B-9E7B-7113CFAC0CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5D4033E-3964-4712-8C95-33B4846BC351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5D4033E-3964-4712-8C95-33B4846BC351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5D4033E-3964-4712-8C95-33B4846BC351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5D4033E-3964-4712-8C95-33B4846BC351}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {07CBEDFA-EE1F-42D8-AECD-08213FD76090}
+	EndGlobalSection
+EndGlobal

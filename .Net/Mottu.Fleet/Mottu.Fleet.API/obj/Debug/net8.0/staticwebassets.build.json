@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "nag63xy0j/QehmTz0bU77BxEBDaKy3VIK8PkCRL86AQ=",
+  "Source": "Mottu.Fleet.API",
+  "BasePath": "_content/Mottu.Fleet.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
