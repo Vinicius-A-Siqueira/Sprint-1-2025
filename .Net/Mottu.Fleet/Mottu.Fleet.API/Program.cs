@@ -34,7 +34,11 @@ internal class Program
         var app = builder.Build();
 
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mottu Fleet API v1");
+            c.RoutePrefix = "swagger"; // Acessível em http://localhost:5000/swagger
+        });
         app.UseAuthorization();
         app.MapControllers();
         app.Run();
