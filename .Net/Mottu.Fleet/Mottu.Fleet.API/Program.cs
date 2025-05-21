@@ -11,6 +11,12 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Configurar Kestrel para escutar em todas as interfaces na porta 5000
+        builder.WebHost.ConfigureKestrel(options =>
+        {
+            options.ListenAnyIP(5000); // Permite conexões externas
+        });
+
         var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
         builder.Services.AddDbContext<MottuDbContext>(opt =>
             opt.UseOracle(connectionString));
@@ -26,6 +32,7 @@ internal class Program
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
+
         app.UseSwagger();
         app.UseSwaggerUI();
         app.UseAuthorization();
