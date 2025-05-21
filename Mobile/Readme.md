@@ -3,10 +3,11 @@
 ![image](https://github.com/user-attachments/assets/6335eded-1ce5-41f1-8fbd-7921804f3f67)
 
 ## 👥 Integrantes
+- Gabriel Camargo – RM557879  
+- Kauan Felipe – RM557954  
+- Vinicius Alves – RM551939  
 
-- **Gabriel Camargo** – RM557879  
-- **Kauan Felipe** – RM557954  
-- **Vinicius Alves** – RM551939  
+---
 
 ## Descrição do Projeto
 
@@ -24,12 +25,12 @@ A solução busca facilitar o controle operacional das motos dentro do pátio, o
 
 ## Tecnologias Utilizadas
 
-- React Native (com Expo)
-- TypeScript
-- AsyncStorage para armazenamento local
-- @react-navigation para navegação entre telas
-- @react-native-picker/picker para seleção em formulários
-- Expo Image Picker para seleção de imagens da galeria
+- React Native (com Expo)  
+- TypeScript  
+- AsyncStorage para armazenamento local  
+- @react-navigation para navegação entre telas  
+- @react-native-picker/picker para seleção em formulários  
+- Expo Image Picker para seleção de imagens da galeria  
 
 ---
 
@@ -37,9 +38,9 @@ A solução busca facilitar o controle operacional das motos dentro do pátio, o
 
 ### Pré-requisitos
 
-- Node.js (versão recomendada 18.x ou similar)
-- npm ou yarn instalado
-- Expo CLI (recomenda-se usar via `npx`)
+- Node.js (versão recomendada 18.x ou similar)  
+- npm ou yarn instalado  
+- Expo CLI (recomenda-se usar via `npx`)  
 
 ### Passos
 
@@ -47,25 +48,33 @@ A solução busca facilitar o controle operacional das motos dentro do pátio, o
 
 ```bash
 git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025.git
+```
 
-Navegue até a pasta do projeto Mobile
+2. Navegue até a pasta do projeto Mobile
 
-bash
-Copiar
-Editar
+```bash
 cd Sprint-1-2025/Mobile/mottu-smart-patio
-Instale as dependências
+```
 
-bash
-Copiar
-Editar
+3. Instale as dependências
+
+```bash
 npm install
 # ou
 yarn install
-Inicie o servidor Expo
+```
 
-bash
-Copiar
-Editar
+4. Inicie o servidor Expo
+
+```bash
 npx expo start
-Abra o aplicativo em um dispositivo físico (Android/iOS) usando o app Expo Go, ou em um emulador.
+```
+
+5. Abra o aplicativo em um dispositivo físico (Android/iOS) usando o app Expo Go, ou em um emulador.
+
+---
+
+
+4. Inicie o servidor Expo
+
+npx expo start
