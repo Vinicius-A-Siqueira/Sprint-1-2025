@@ -1,0 +1,17 @@
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Application.deps.json
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Application.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Application.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Domain.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Infrastructure.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Domain.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\bin\Debug\net8.0\Mottu.Fleet.Infrastructure.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.csproj.AssemblyReference.cache
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.AssemblyInfoInputs.cache
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.AssemblyInfo.cs
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.csproj.CoreCompileInputs.cache
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fl.AF8A2E3E.Up2Date
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\refint\Mottu.Fleet.Application.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\Mottu.Fleet.Application.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Application\obj\Debug\net8.0\ref\Mottu.Fleet.Application.dll
