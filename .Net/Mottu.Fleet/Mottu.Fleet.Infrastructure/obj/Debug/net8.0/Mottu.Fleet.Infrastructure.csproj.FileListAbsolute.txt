@@ -1,0 +1,15 @@
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.AssemblyInfo.cs
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\bin\Debug\net8.0\Mottu.Fleet.Infrastructure.deps.json
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\bin\Debug\net8.0\Mottu.Fleet.Infrastructure.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\bin\Debug\net8.0\Mottu.Fleet.Infrastructure.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\bin\Debug\net8.0\Mottu.Fleet.Domain.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\bin\Debug\net8.0\Mottu.Fleet.Domain.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fl.0B75AC4E.Up2Date
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\refint\Mottu.Fleet.Infrastructure.dll
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\Mottu.Fleet.Infrastructure.pdb
+C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Infrastructure\obj\Debug\net8.0\ref\Mottu.Fleet.Infrastructure.dll
