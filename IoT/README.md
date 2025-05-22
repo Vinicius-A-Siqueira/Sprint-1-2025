@@ -28,6 +28,7 @@ mottu_project/
 └── python_vision/           # Script de Visão Computacional
     ├── mottu_detector.py    # Implementação inicial com YOLOv8
     ├── mottu_detector_improved.py # Versão melhorada com detecção por cor
+    ├── detector_mottu.py    # Gera imagens de simulação para fazer a detecção.
     ├── research.md          # Pesquisa sobre modelos de visão computacional
     ├── images/              # Imagens de teste e resultados
     │   ├── sample/          # Imagens simuladas de pátio
