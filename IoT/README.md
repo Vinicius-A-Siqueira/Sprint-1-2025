@@ -1,4 +1,14 @@
-# Projeto Mottu: Solução de Mapeamento Inteligente do Pátio e Gestão das Motos
+# Sprint-1-2025
+
+![image](https://github.com/user-attachments/assets/6335eded-1ce5-41f1-8fbd-7921804f3f67)
+
+## 👥 Integrantes
+
+- **Gabriel Camargo** – RM557879  
+- **Kauan Felipe** – RM557954  
+- **Vinicius Alves** – RM551939  
+
+---
 
 Este repositório contém a implementação de duas soluções complementares para o mapeamento inteligente e gestão de motos nos pátios da Mottu:
 
