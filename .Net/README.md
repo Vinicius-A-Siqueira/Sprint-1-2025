@@ -68,7 +68,7 @@ Acesse a documentação Swagger para testar os endpoints:
 bash
 Copiar
 Editar
-http://localhost:5019/swagger
+http://localhost:5010/swagger
 
 | Método | Rota                 | Descrição                        |
 |--------|----------------------|---------------------------------|
