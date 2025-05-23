@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JAkcc18rgkM=",
+  "dgSpecHash": "82nJjuF2Lzg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Application\\Mottu.Fleet.Application.csproj",
+  "projectFilePath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Application\\Mottu.Fleet.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ViníciusSiqueira\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\ViníciusSiqueira\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",

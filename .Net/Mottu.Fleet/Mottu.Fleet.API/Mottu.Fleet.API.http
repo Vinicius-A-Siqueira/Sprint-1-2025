@@ -1,11 +1,7 @@
-@Mottu.Fleet.API_HostAddress = http://localhost:5019
+@host = http://localhost:5010
 
-GET {{Mottu.Fleet.API_HostAddress}}/todos/
+GET {{host}}/api/moto
 Accept: application/json
 
-###
-
-GET {{Mottu.Fleet.API_HostAddress}}/todos/1
+GET {{host}}/api/moto/1
 Accept: application/json
-
-###

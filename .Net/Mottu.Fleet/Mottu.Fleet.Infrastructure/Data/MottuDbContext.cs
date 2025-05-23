@@ -18,6 +18,5 @@ public class MottuDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        // Configurações específicas (se houver)
     }
 }

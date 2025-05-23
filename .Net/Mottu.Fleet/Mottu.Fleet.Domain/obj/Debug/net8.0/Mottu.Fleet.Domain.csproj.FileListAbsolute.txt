@@ -9,3 +9,15 @@ C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug
 C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\refint\Mottu.Fleet.Domain.dll
 C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.pdb
 C:\Users\ViníciusSiqueira\source\repos\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\ref\Mottu.Fleet.Domain.dll
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\bin\Debug\net8.0\Mottu.Fleet.Domain.deps.json
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\bin\Debug\net8.0\Mottu.Fleet.Domain.dll
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\bin\Debug\net8.0\Mottu.Fleet.Domain.pdb
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.AssemblyInfoInputs.cache
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.AssemblyInfo.cs
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.csproj.CoreCompileInputs.cache
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.sourcelink.json
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.dll
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\refint\Mottu.Fleet.Domain.dll
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\Mottu.Fleet.Domain.pdb
+C:\Users\ViníciusSiqueira\Downloads\Vinicius\Sprint-1-2025\.Net\Mottu.Fleet\Mottu.Fleet.Domain\obj\Debug\net8.0\ref\Mottu.Fleet.Domain.dll

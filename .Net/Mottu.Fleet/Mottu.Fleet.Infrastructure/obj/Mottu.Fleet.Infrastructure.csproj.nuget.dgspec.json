@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj": {}
+    "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj": {
+    "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj",
         "projectName": "Mottu.Fleet.Domain",
-        "projectPath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj",
+        "projectPath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj",
         "packagesPath": "C:\\Users\\ViníciusSiqueira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Domain\\obj\\",
+        "outputPath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj": {
+    "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj",
         "projectName": "Mottu.Fleet.Infrastructure",
-        "projectPath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\Mottu.Fleet.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\ViníciusSiqueira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj": {
-                "projectPath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj"
+              "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj": {
+                "projectPath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.Domain\\Mottu.Fleet.Domain.csproj"
               }
             }
           }

@@ -11,11 +11,10 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Configurar Kestrel para escutar em todas as interfaces na porta 5000
-        builder.WebHost.ConfigureKestrel(options =>
-        {
-            options.ListenAnyIP(5000); // Permite conexões externas
-        });
+        //builder.WebHost.ConfigureKestrel(options =>
+       // {
+        //    options.ListenAnyIP(5010); 
+       // });
 
         var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
         builder.Services.AddDbContext<MottuDbContext>(opt =>
@@ -37,7 +36,7 @@ internal class Program
         app.UseSwaggerUI(c =>
         {
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mottu Fleet API v1");
-            c.RoutePrefix = "swagger"; // Isso faz o swagger UI ficar em http://localhost:5000/swagger
+            c.RoutePrefix = "swagger"; // Acesse via http://localhost:5010/swagger
         });
         app.UseAuthorization();
         app.MapControllers();

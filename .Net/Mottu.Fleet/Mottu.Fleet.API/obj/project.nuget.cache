@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Iby0kaOwDdY=",
+  "dgSpecHash": "yC3flaSfseI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ViníciusSiqueira\\source\\repos\\Mottu.Fleet\\Mottu.Fleet.API\\Mottu.Fleet.API.csproj",
+  "projectFilePath": "C:\\Users\\ViníciusSiqueira\\Downloads\\Vinicius\\Sprint-1-2025\\.Net\\Mottu.Fleet\\Mottu.Fleet.API\\Mottu.Fleet.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ViníciusSiqueira\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\ViníciusSiqueira\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

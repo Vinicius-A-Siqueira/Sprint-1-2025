@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mottu.Fleet.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b99a113bd373bf33024ec3aef6b9ade9ebf6ae33")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mottu.Fleet.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mottu.Fleet.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
