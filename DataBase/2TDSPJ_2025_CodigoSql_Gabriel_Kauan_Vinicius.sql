@@ -657,10 +657,6 @@ BEGIN
 END;
 /
 
-
-
-
-
 -- =============================================================================
 -- SCRIPTS DE TESTE E DEMONSTRAÇÃO
 -- =============================================================================
@@ -774,20 +770,16 @@ EXCEPTION
 END;
 /
 
--- Teste do Trigger (INSERT)
 INSERT INTO moto (id_moto, placa, ano_fabricacao, statusmoto_id_status, patio_id_patio, patio_filial_id_filial)
-VALUES (6, 'TEST-0001', DATE '2024-01-01', 1, 1, 1);
+VALUES (999, 'TEST-123', DATE '2025-01-01', 1, 1, 1);
 
--- Teste do Trigger (UPDATE)  
-UPDATE moto SET statusmoto_id_status = 3 WHERE id_moto = 6;
+UPDATE moto SET placa = 'TEST-456' WHERE id_moto = 999;
 
--- Teste do Trigger (DELETE)
-DELETE FROM moto WHERE id_moto = 6;
+DELETE FROM moto WHERE id_moto = 999;
 
--- Consulta dos registros de auditoria
-SELECT * FROM auditoria ORDER BY data_hora DESC;
-
-COMMIT;
+SELECT * FROM auditoria
+WHERE tabela_afetada = 'MOTO'
+ORDER BY id_auditoria DESC;
 
 -- =============================================================================
 -- FIM DO SCRIPT
