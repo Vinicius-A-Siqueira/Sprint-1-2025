@@ -657,16 +657,9 @@ BEGIN
 END;
 /
 
-INSERT INTO moto (id_moto, placa, ano_fabricacao, statusmoto_id_status, patio_id_patio, patio_filial_id_filial)
-VALUES (999, 'TEST-123', DATE '2025-01-01', 1, 1, 1);
 
-UPDATE moto SET placa = 'TEST-456' WHERE id_moto = 999;
 
-DELETE FROM moto WHERE id_moto = 999;
 
-SELECT * FROM auditoria
-WHERE tabela_afetada = 'MOTO'
-ORDER BY id_auditoria DESC;
 
 -- =============================================================================
 -- SCRIPTS DE TESTE E DEMONSTRAÇÃO
