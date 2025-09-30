@@ -48,7 +48,7 @@ public class MotoController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editar(@PathVariable("id") Long id, Model model) {
+    public String editar(@PathVariable Long id, Model model) {
         Moto moto = motoService.buscar(id).orElse(null);
         model.addAttribute("moto", moto);
         model.addAttribute("patios", patioService.listarTodos());
@@ -56,7 +56,7 @@ public class MotoController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deletar(@PathVariable("id") Long id) {
+    public String deletar(@PathVariable Long id) {
         motoService.excluir(id);
         return "redirect:/moto";
     }

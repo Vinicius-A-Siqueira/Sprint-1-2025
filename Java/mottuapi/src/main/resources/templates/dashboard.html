@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Dashboard')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2>Dashboard</h2>
+
+<div>
+    <p><strong>Usuário logado:</strong>
+        <span th:if="${#authentication != null}" th:text="${#authentication.name}">user</span>
+        <span th:unless="${#authentication != null}">Usuário anônimo</span>
+    </p>
+</div>
+
+<div>
+    <h3>Estatísticas</h3>
+    <ul>
+        <li>Total de Pátios: <span th:text="${totalPatios}">0</span></li>
+        <li>Total de Motos: <span th:text="${totalMotos}">0</span></li>
+        <li>Total de Usuários: <span th:text="${totalUsuarios}">0</span></li>
+    </ul>
+</div>
+
+<div th:if="${role == 'ROLE_ADMIN'}">
+    <h3>Área Administrativa</h3>
+    <p>Bem-vindo, administrador! Aqui você pode gerenciar o sistema.</p>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -18,7 +18,7 @@ public class MotoService {
         return motoRepository.findAll();
     }
 
-    public Optional<Moto> buscarPorId(Long id) {
+    public Optional<Moto> buscar(Long id) {
         return motoRepository.findById(id);
     }
 
@@ -26,7 +26,7 @@ public class MotoService {
         return motoRepository.save(moto);
     }
 
-    public void excluirPorId(Long id) {
+    public void excluir(Long id) {
         motoRepository.deleteById(id);
     }
 }

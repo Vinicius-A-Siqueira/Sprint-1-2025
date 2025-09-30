@@ -11,9 +11,12 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResourceNotFound(ResourceNotFoundException ex) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("erro", ex.getMessage()));
+        Map<String, String> erros = new HashMap<>();
+        erros.put("erro", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erros);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -25,6 +28,8 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> handleGenericException(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("erro", "Erro interno"));
+        Map<String, String> erros = new HashMap<>();
+        erros.put("erro", "Erro interno");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(erros);
     }
 }

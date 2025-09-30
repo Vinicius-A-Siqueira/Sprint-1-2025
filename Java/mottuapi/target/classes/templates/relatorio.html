@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Relatório da Frota')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2>Relatório da Frota</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Pátio</th>
+        <th>Total de Motos</th>
+        <th>Motos Disponíveis</th>
+        <th>Motos em Manutenção</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rel : ${relatorio}">
+        <td th:text="${rel.patioNome}">Patio X</td>
+        <td th:text="${rel.totalMotos}">0</td>
+        <td th:text="${rel.motosDisponiveis}">0</td>
+        <td th:text="${rel.motosManutencao}">0</td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <button onclick="exportCSV()">Exportar CSV</button>
+</div>
+
+<script th:src="@{/js/main.js}"></script>
+
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

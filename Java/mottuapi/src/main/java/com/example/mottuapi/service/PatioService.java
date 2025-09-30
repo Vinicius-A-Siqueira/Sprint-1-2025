@@ -18,7 +18,7 @@ public class PatioService {
         return patioRepository.findAll();
     }
 
-    public Optional<Patio> buscarPorId(Long id) {
+    public Optional<Patio> buscar(Long id) {
         return patioRepository.findById(id);
     }
 
@@ -26,7 +26,7 @@ public class PatioService {
         return patioRepository.save(patio);
     }
 
-    public void excluirPorId(Long id) {
+    public void excluir(Long id) {
         patioRepository.deleteById(id);
     }
 }

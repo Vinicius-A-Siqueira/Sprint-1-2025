@@ -10,92 +10,86 @@
 
 ---
 
-## 📌 Escopo do Projeto
+# Mottu API
 
-### ❗ Descrição Detalhada do Problema
+## Descrição
 
-A Mottu enfrenta desafios operacionais na **gestão e localização de motos** nos pátios de mais de 100 filiais. Atualmente, esse controle é feito **manualmente**, o que resulta em:
-
-- Ineficiência no gerenciamento.
-- Alta propensão a erros humanos.
-- Dificuldade de escalabilidade operacional.
+Aplicação web desenvolvida em Spring Boot para gerenciamento de pátios e motos, com sistema de usuários autenticados para controle de acesso. Utiliza Oracle Database para persistência e Thymeleaf para renderização de páginas web.
 
 ---
 
-### 🎯 Objetivos da Solução Idealizada
+## Funcionalidades
 
-- 📍 **Identificar com precisão** a localização de cada moto nos pátios.
-- 🗺️ Fornecer **visualização em tempo real** da disposição das motos.
-- 🧩 Criar um **modelo digital interativo e adaptável** para diferentes pátios.
-- 📱 Desenvolver **interface web/mobile** de acesso rápido e intuitivo.
-- 📡 **Integrar sensores IoT** às motos para coleta de dados adicionais (posição, status, alertas).
-- 🌎 Permitir **escalabilidade** da solução para todas as filiais no Brasil e México.
+- Cadastro, listagem, edição e exclusão de pátios.
+- Cadastro, listagem, edição e exclusão de motos vinculadas a pátios.
+- Cadastro e autenticação de usuários com perfis administrativos e funcionais.
+- Controle de acesso baseado em roles via Spring Security.
+- Validação de entradas com Bean Validation.
+- Migrações automáticas de banco com Flyway.
 
 ---
 
-## 🚀 Instruções de Execução
+## Tecnologias Utilizadas
 
-### 🛠️ Pré-requisitos
+- Java 18
+- Spring Boot 3.0.5
+- Spring Security
+- Thymeleaf 3.1.1
+- Oracle Database 19c
+- Flyway para migrações de banco
+- Maven para build e gerenciamento de dependências
 
-- Java 17 ou superior instalado
+---
+
+## Requisitos
+
+- Oracle Database ativo e acessível
+- JDK 18 instalado
 - Maven instalado
-- Oracle Database configurado e em execução
-- Postman ou `curl` para testes (opcional)
-- IDE (IntelliJ, Eclipse ou VSCode com suporte Java)
 
 ---
 
-### 🔧 Setup do Projeto
+## Configuração
 
-1. **Clone o repositório:**
-
-```bash
-git clone https://github.com/seu-usuario/projeto-mottu.git
-cd projeto-mottu
+Ajuste o arquivo `src/main/resources/application.properties` com os dados da sua base Oracle:
 ```
-
-2. **Configure o banco Oracle:**
-
-- Execute os scripts SQL disponíveis na pasta `/database` para criar as tabelas e inserir os dados de exemplo.
-- Certifique-se de que o Oracle esteja acessível via JDBC com as credenciais corretas.
-
-3. **Configure o `application.properties`:**
-
-```properties
 spring.datasource.url=jdbc:oracle:thin:@//oracle.fiap.com.br:1521/orcl
 spring.datasource.username=rm551939
-spring.datasource.password=270399
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
-spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
-spring.jpa.hibernate.ddl-auto=update
+spring.datasource.password=sua_senha
+spring.jpa.hibernate.ddl-auto=none
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.properties.hibernate.use_sql_comments=true
-
 ```
+---
 
-4. **Execute o projeto:**
+## Como executar
 
-```bash
-./mvnw spring-boot:run
+Na raiz do projeto, execute:
 ```
-
-> O servidor será iniciado em `http://localhost:8080`.
+mvn clean package
+mvn spring-boot:run
+```
 
 ---
 
-### 📫 Endpoints Principais
+## Endpoints Principais
 
-- `GET /api/filiais` – Lista todas as filiais  
-- `POST /api/filiais` – Cria uma nova filial  
-- `PUT /api/filiais/{id}` – Atualiza os dados de uma filial  
-- `DELETE /api/filiais/{id}` – Remove uma filial  
-
-(Endpoints de motos também estão disponíveis se implementados.)
+- `/login` - Página de login.
+- `/usuario/novo` - Formulário para cadastro de novos usuários.
+- `/patio` - Gerenciamento de pátios.
+- `/moto` - Gerenciamento de motos.
 
 ---
 
-### 📎 Observações
+## Estrutura do Projeto
 
-- Autenticação básica está ativada (`admin:admin123` por padrão).
-- Use o Postman ou `curl` com as credenciais acima para consumir a API.
+- `src/main/java` - Código-fonte Java.
+- `src/main/resources/templates` - Templates Thymeleaf.
+- `src/main/resources/db/migration` - Scripts Flyway.
+- `src/main/resources/application.properties` - Configurações de ambiente.
+
+---
+
+## Contato
+
+Para dúvidas e suporte, contate o desenvolvedor.
+

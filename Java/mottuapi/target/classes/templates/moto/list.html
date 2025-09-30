@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Lista de Motos')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2>Lista de Motocicletas</h2>
+<a th:href="@{/moto/new}">Nova Moto</a>
+<table>
+    <thead>
+    <tr>
+        <th>Placa</th>
+        <th>Modelo</th>
+        <th>Pátio</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="moto : ${motos}">
+        <td th:text="${moto.placa}">Placa</td>
+        <td th:text="${moto.modelo}">Modelo</td>
+        <td th:text="${moto.patio.nome}">Pátio</td>
+        <td>
+            <a th:href="@{/moto/edit/{id}(id=${moto.id})}">Editar</a> |
+            <a th:href="@{/moto/delete/{id}(id=${moto.id})}"
+               onclick="return confirm('Confirma excluir?')">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
