@@ -1,47 +1,40 @@
 package com.example.mottuapi.config;
 
-import org.springframework.context.annotation.Bean;
+import com.example.mottuapi.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-public class SecurityConfig {
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // Define o usuário admin em memória
-    @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-        var user = User.builder()
-                .username("admin")
-                .password(encoder.encode("admin123"))
-                .roles("ADMIN")
-                .build();
+    @Autowired
+    private UsuarioService usuarioService;
 
-        return new InMemoryUserDetailsManager(user);
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(usuarioService).passwordEncoder(org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance());
     }
 
-    // Define o encoder de senhas
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    // Configura as permissões de acesso
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(Customizer.withDefaults()); // usa autenticação básica (Authorization: Basic ...)
-        return http.build();
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/moto/**", "/patio/**").hasAnyRole("ADMIN", "FUNCIONARIO")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/dashboard", true)
+                .and()
+                .logout()
+                .logoutUrl("/logout").permitAll()
+                .logoutSuccessUrl("/login?logout");
     }
 }

@@ -1,41 +1,63 @@
 package com.example.mottuapi.controller;
 
-import com.example.mottuapi.dto.MotoDTO;
 import com.example.mottuapi.entity.Moto;
+import com.example.mottuapi.entity.Patio;
 import com.example.mottuapi.service.MotoService;
+import com.example.mottuapi.service.PatioService;
 import jakarta.validation.Valid;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/motos")
-public class MotoController {
-    private final MotoService service;
+import java.util.List;
 
-    public MotoController(MotoService service) {
-        this.service = service;
-    }
+@Controller
+@RequestMapping("/moto")
+public class MotoController {
+
+    @Autowired
+    private MotoService motoService;
+
+    @Autowired
+    private PatioService patioService;
 
     @GetMapping
-    public Page<Moto> listar(@RequestParam(defaultValue = "") String status, Pageable pageable) {
-        return service.listar(status, pageable);
+    public String listar(Model model) {
+        List<Moto> motos = motoService.listarTodos();
+        model.addAttribute("motos", motos);
+        return "moto/list";
     }
 
-    @PostMapping
-    public Moto criar(@RequestBody @Valid MotoDTO dto) {
-        Moto moto = new Moto(null, dto.getPlaca(), dto.getStatus(), null);
-        return service.salvar(moto, dto.getFilialId());
+    @GetMapping("/new")
+    public String novo(Model model) {
+        model.addAttribute("moto", new Moto());
+        model.addAttribute("patios", patioService.listarTodos());
+        return "moto/form";
     }
 
-    @PutMapping("/{id}")
-    public Moto atualizar(@PathVariable Long id, @RequestBody @Valid MotoDTO dto) {
-        Moto moto = new Moto(id, dto.getPlaca(), dto.getStatus(), null);
-        return service.atualizar(id, moto);
+    @PostMapping("/save")
+    public String salvar(@Valid Moto moto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("patios", patioService.listarTodos());
+            return "moto/form";
+        }
+        motoService.salvar(moto);
+        return "redirect:/moto";
     }
 
-    @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
-        service.deletar(id);
+    @GetMapping("/edit/{id}")
+    public String editar(@PathVariable("id") Long id, Model model) {
+        Moto moto = motoService.buscar(id).orElse(null);
+        model.addAttribute("moto", moto);
+        model.addAttribute("patios", patioService.listarTodos());
+        return "moto/form";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deletar(@PathVariable("id") Long id) {
+        motoService.excluir(id);
+        return "redirect:/moto";
     }
 }

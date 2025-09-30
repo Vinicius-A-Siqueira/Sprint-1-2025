@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Patios')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2>Lista de Patios</h2>
+<a th:href="@{/patio/new}">Novo Patio</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="patio : ${patios}">
+        <td th:text="${patio.nome}"></td>
+        <td th:text="${patio.endereco}"></td>
+        <td>
+            <a th:href="@{|/patio/edit/${patio.id}|}">Editar</a>
+            <a th:href="@{|/patio/delete/${patio.id}|}" onclick="return confirm('Excluir este patio?');">Excluir</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
