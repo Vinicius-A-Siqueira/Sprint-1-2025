@@ -10,7 +10,7 @@
 
 ## Video
 
-- **Link do Video:** 
+- **Link do Video:** https://youtu.be/CKnDRbdoXnI?si=mpuA_z5ZrknWyyzI
 ---
 
 # Mottu API
