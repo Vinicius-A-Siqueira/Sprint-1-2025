@@ -1,0 +1,13 @@
+# Ignorar diretório target com binários e compilados
+/target/
+
+# Ignorar logs
+*.log
+
+# Ignorar relatórios de testes
+*.xml
+*.txt
+
+# Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
