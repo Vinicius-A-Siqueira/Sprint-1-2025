@@ -88,6 +88,7 @@ mvn clean package
 ```
 git add target/mottu-app-1.0.0.jar
 git commit -m "Deploy jar"
+git remote add azure https://mottu-api-unique-1001@mottu-api-unique-1001.scm.azurewebsites.net/mottu-api-unique-1001.git
 git push azure master
 ```
 ### 5. Acessar aplicação
