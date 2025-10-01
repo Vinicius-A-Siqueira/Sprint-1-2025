@@ -10,7 +10,7 @@
 
 ## Video
 
-- **Link do Video:**
+- **Link do Video:** https://youtu.be/2DJoCwb-u0c?si=P36-7aeRmFBXwpRo
 ---
 # Mottu Application - Guia de Uso
 
