@@ -31,7 +31,7 @@ Publicado no Azure App Service com armazenamento do banco na nuvem.
 ### 1. Clonar repositório
 
 ```
-git clone [<url-do-repositório>](https://github.com/Vinicius-A-Siqueira/Sprint-1-2025)
+git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025
 cd Devops/mottuapi
 ```
 
