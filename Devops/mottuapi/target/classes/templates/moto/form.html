@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Cadastro de Moto')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2 th:text="${moto.id != null ? 'Editar Moto' : 'Nova Moto'}"></h2>
+
+<form th:action="@{/moto/save}" th:object="${moto}" method="post">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <label for="placa">Placa:</label>
+    <input type="text" id="placa" th:field="*{placa}" required />
+    <div th:if="${#fields.hasErrors('placa')}" th:errors="*{placa}"></div>
+
+    <br/>
+
+    <label for="modelo">Modelo:</label>
+    <input type="text" id="modelo" th:field="*{modelo}" required />
+    <div th:if="${#fields.hasErrors('modelo')}" th:errors="*{modelo}"></div>
+
+    <br/>
+
+    <label for="patio">Pátio:</label>
+    <select id="patio" th:field="*{patio}" required>
+        <option value="" disabled th:selected="*{patio} == null">Selecione um pátio</option>
+        <option th:each="patio : ${patios}" th:value="${patio.id}" th:text="${patio.nome}" th:selected="*{patio} == ${patio}"></option>
+    </select>
+    <div th:if="${#fields.hasErrors('patio')}" th:errors="*{patio}"></div>
+
+    <br/>
+
+    <button type="submit">Salvar</button>
+    <a th:href="@{/moto}">Cancelar</a>
+</form>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

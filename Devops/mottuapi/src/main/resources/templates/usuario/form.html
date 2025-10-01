@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Cadastro de Usuário')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2 th:text="${usuario.id != null ? 'Editar Usuário' : 'Novo Usuário'}"></h2>
+
+<form th:action="@{/templates/usuario/save}" th:object="${usuario}" method="post">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <label for="username">Nome de usuário:</label>
+    <input type="text" id="username" th:field="*{username}" required />
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+
+    <br/>
+
+    <label for="password">Senha:</label>
+    <input type="password" id="password" th:field="*{password}" required />
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+
+    <br/>
+
+    <label for="perfil">Perfil:</label>
+    <select id="perfil" th:field="*{perfil}">
+        <option value="ROLE_ADMIN">Administrador</option>
+        <option value="ROLE_FUNCIONARIO">Funcionário</option>
+    </select>
+
+    <br/>
+
+    <button type="submit">Salvar</button>
+    <a th:href="@{/login}">Cancelar</a>
+</form>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

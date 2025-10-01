@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header('Cadastro Patio')"></head>
+<body>
+<div th:replace="fragments/menu :: menu"></div>
+
+<h2 th:text="${patio.id} != null ? 'Editar Patio' : 'Novo Patio'"></h2>
+
+<form th:action="@{/patio/save}" th:object="${patio}" method="post">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" th:field="*{nome}" required/>
+    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+
+    <br/>
+
+    <label for="endereco">Endereco:</label>
+    <input type="text" id="endereco" th:field="*{endereco}" required/>
+    <div th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"></div>
+
+    <br/>
+
+    <button type="submit">Salvar</button>
+    <a th:href="@{/patio}">Cancelar</a>
+</form>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
