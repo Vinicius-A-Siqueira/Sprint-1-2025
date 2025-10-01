@@ -1,6 +1,8 @@
 com\example\mottuapi\exception\GlobalExceptionHandler.class
 com\example\mottuapi\controller\MotoController.class
+com\example\mottuapi\controller\UsuarioController.class
 com\example\mottuapi\controller\HomeController.class
+com\example\mottuapi\config\PasswordConfig.class
 com\example\mottuapi\service\UsuarioService.class
 com\example\mottuapi\entity\Usuario.class
 com\example\mottuapi\dto\MotoDTO.class
