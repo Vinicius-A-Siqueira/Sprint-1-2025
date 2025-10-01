@@ -32,7 +32,7 @@ Publicado no Azure App Service com armazenamento do banco na nuvem.
 
 ```
 git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025
-cd Devops/mottuapi
+cd Sprint-1-2025\Devops\mottuapi
 ```
 
 ### 2. Configurar banco Azure SQL
