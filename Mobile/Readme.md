@@ -3,45 +3,77 @@
 ![image](https://github.com/user-attachments/assets/6335eded-1ce5-41f1-8fbd-7921804f3f67)
 
 ## 👥 Integrantes
-- Gabriel Camargo – RM557879  
-- Kauan Felipe – RM557954  
+- Gabriel Camargo – RM557879
+- Link do GIithub: https://github.com/GabrielCamargoo
+- Kauan Felipe – RM557954 
+- Link do GIithub: https://github.com/KauanSouz
 - Vinicius Alves – RM551939  
+- Link do GIithub: https://github.com/Vinicius-A-Siqueira
+
+## Video
+
+- **Link do video:** 
+
 
 ---
 
-## Descrição do Projeto
+# APP
 
-Este projeto consiste em um aplicativo mobile desenvolvido com React Native e Expo chamado **Mottu Smart Patio**. O app foi criado para auxiliar na gestão inteligente do pátio de motos da empresa Mottu, permitindo:
+Aplicativo mobile desenvolvido em **React Native (Expo)** para gerenciar **tasks** e **notes**.  
+Entrega intermediária da disciplina **Mobile Application Development**.
+---
 
-- Cadastro, edição e listagem das motos com status e imagens;
-- Visualização das motos em modo lista ou grade;
-- Armazenamento local dos dados utilizando AsyncStorage;
-- Navegação fluida entre telas de listagem, cadastro, detalhes e configurações;
-- Interface simples e funcional com tema escuro e cores verdes para melhor contraste.
-
-A solução busca facilitar o controle operacional das motos dentro do pátio, otimizando o tempo e reduzindo erros no processo.
+## ✨ Funcionalidades
+- 🔐 **Autenticação** (Login, Cadastro, Logout) com validação, mensagens de erro e loaders.  
+- 🎨 **Tema Claro/Escuro** com persistência e alternância em tempo real.  
+- ✅ **Tasks (CRUD completo)**  
+ - Criar, Listar, Detalhar, Editar, Excluir  
+ - Indicadores de status (“Pendente”, “Concluída”)  
+- 📝 **Notes (CRUD completo)**  
+ - Criar, Listar, Detalhar, Editar, Excluir  
+- 📋 **Formulários com validação** usando Formik + Yup.  
+- ⏳ **Indicadores de carregamento** em todas as chamadas de rede.  
+- 🎨 **UI baseada em Material Design** (React Native Paper).  
 
 ---
 
-## Tecnologias Utilizadas
+## 🧱 Arquitetura do Projeto
 
-- React Native (com Expo)  
-- TypeScript  
-- AsyncStorage para armazenamento local  
-- @react-navigation para navegação entre telas  
-- @react-native-picker/picker para seleção em formulários  
-- Expo Image Picker para seleção de imagens da galeria  
+src/
+App.tsx
+routes/ (AuthRoutes, AppRoutes)
+screens/
+LoginScreen.tsx
+RegisterScreen.tsx
+HomeScreen.tsx
+tasks/
+TaskListScreen.tsx
+TaskFormScreen.tsx
+TaskDetailScreen.tsx
+notes/
+NoteListScreen.tsx
+NoteFormScreen.tsx
+NoteDetailScreen.tsx
+services/ (api.ts, taskService.ts, noteService.ts)
+contexts/ (AuthContext.tsx, ThemeContext.tsx)
+components/ (Loading, ErrorMessage, ThemeToggle)
+theme/ (index.tsx)
+utils/ (validators.ts)
+
+## 🔧 Requisitos
+- Node.js 18+  
+- Expo CLI  
+- Backend disponível (.NET) com endpoints:  
+ - `POST /auth/register`, `POST /auth/login` → retorna `{ token, user }`  
+ - `GET/POST/PUT/DELETE /tasks`  
+ - `GET/POST/PUT/DELETE /notes`  
+Configuração do `.env`:
+
+> 📌 Para celular físico use o IP da sua máquina (ex: `192.168.1.5`).
 
 ---
 
-## Como Rodar o Projeto Localmente
-
-### Pré-requisitos
-
-- Node.js (versão recomendada 18.x ou similar)  
-- npm ou yarn instalado  
-- Expo CLI (recomenda-se usar via `npx`)  
-
+## ▶️ Como Rodar
 ### Passos
 
 1. Clone o repositório
@@ -53,7 +85,7 @@ git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025.git
 2. Navegue até a pasta do projeto Mobile
 
 ```bash
-cd Sprint-1-2025/Mobile/mottu-smart-patio
+cd Sprint-1-2025/Mobile/mobile-app-intermediate
 ```
 
 3. Instale as dependências
@@ -63,7 +95,6 @@ npm install
 # ou
 yarn install
 ```
-
 4. Inicie o servidor Expo
 
 ```bash
