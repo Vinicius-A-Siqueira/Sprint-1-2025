@@ -8,6 +8,10 @@
 - **Kauan Felipe** – RM557954  
 - **Vinicius Alves** – RM551939  
 
+## Video
+
+- **Link do Video:** 
+
 ---
 
 # IoT Motos – MQTT + FastAPI + Dash
@@ -28,6 +32,16 @@ Projeto de demonstração **funcional** para o desafio IoT/Visão, cobrindo:
 ```
 
 ## Como executar (local)
+
+0) **Executar o dashboard em Ploty**
+
+```
+git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025/
+
+cd Sprint-1-2025\IoT\iot-motos\dashboard
+
+& C:/Python313/python.exe c:/Users/ViníciusSiqueira/Downloads/Vinicius/Sprint-1-2025/IoT/iot-motos/dashboard/app1.py
+```
 
 1) **Broker MQTT**
 ```bash
