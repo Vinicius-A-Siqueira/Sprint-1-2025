@@ -12,7 +12,7 @@
 
 ## Video
 
-- **Link do video:** 
+- **Link do video:** https://youtu.be/ZcwVxmzBhZ8?si=QxAb2hEjp_Ak01Cp
 
 
 ---
