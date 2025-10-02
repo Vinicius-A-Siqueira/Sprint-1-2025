@@ -1,69 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mottu.Fleet.Domain.Exceptions;
 
-
-namespace Mottu.Fleet.Domain.Entities
+namespace Mottu.Fleet.Domain.Entities;
+public class Moto : BaseEntity
 {
-    [Table("MOTO")]
-    public class Moto
-    {
-        [Column("ID_MOTO")]
-        public int Id { get; private set; }
+    [Required]
+    [StringLength(20)]
+    public string Placa { get; set; } = string.Empty;
 
-        [Column("PLACA")]
-        public string Placa { get; private set; }
+    [Required]
+    [StringLength(100)]
+    public string Modelo { get; set; } = string.Empty;
 
-        [Column("ANO_FABRICACAO")]
-        public DateTime AnoFabricacao { get; private set; }
+    [Required]
+    public int PatioId { get; set; }
 
-        [Column("PATIO_ID_PATIO")]
-        public int PatioId { get; private set; }
+    [Range(2000, 2030)]
+    public int Ano { get; set; } = DateTime.Now.Year;
 
-        [ForeignKey("PatioId")]
-        public Patio Patio { get; private set; } = null!;
+    [StringLength(50)]
+    public string? Cor { get; set; }
 
-        [Column("PATIO_FILIAL_ID_FILIAL")]
-        public int PatioFilialIdFilial { get; private set; }
+    [Range(0, int.MaxValue)]
+    public int Quilometragem { get; set; } = 0;
 
-        public Moto(string placa, int patioId, int patioFilialIdFilial, DateTime anoFabricacao)
-        {
-            if (string.IsNullOrWhiteSpace(placa))
-                throw new DomainException("Placa inválida.");
+    public MotoStatus Status { get; set; } = MotoStatus.Disponivel;
 
-            if (anoFabricacao == default)
-                throw new DomainException("Ano de fabricação inválido.");
+    public DateTime? UltimaManutencao { get; set; }
 
-            Placa = placa;
-            PatioId = patioId;
-            PatioFilialIdFilial = patioFilialIdFilial;
-            AnoFabricacao = anoFabricacao;
-        }
+    public DateTime? ProximaManutencao { get; set; }
 
-        public void AtualizarPlaca(string novaPlaca)
-        {
-            if (string.IsNullOrWhiteSpace(novaPlaca))
-                throw new DomainException("Placa inválida.");
+    [StringLength(500)]
+    public string? Observacoes { get; set; }
 
-            Placa = novaPlaca;
-        }
+    [StringLength(50)]
+    public string? Chassi { get; set; }
 
-        public void AtualizarAnoFabricacao(DateTime novoAno)
-        {
-            if (novoAno == default)
-                throw new DomainException("Ano de fabricação inválido.");
-
-            AnoFabricacao = novoAno;
-        }
-
-        public void AtualizarPatio(int novoPatioId, int novoPatioFilialIdFilial)
-        {
-            PatioId = novoPatioId;
-            PatioFilialIdFilial = novoPatioFilialIdFilial;
-        }
-    }
+    [StringLength(50)]
+    public string? NumeroMotor { get; set; }
+    public virtual Patio Patio { get; set; } = null!;
 }

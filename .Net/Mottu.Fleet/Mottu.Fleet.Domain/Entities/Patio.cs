@@ -8,48 +8,35 @@ using Mottu.Fleet.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace Mottu.Fleet.Domain.Entities
+namespace Mottu.Fleet.Domain.Entities;
+public class Patio : BaseEntity
 {
-    [Table("PATIO")]
-    public class Patio
-    {
-        [Key]
-        [Column("ID_PATIO")]
-        public int Id { get; set; }
+    [Required]
+    [StringLength(100)]
+    public string Nome { get; set; } = string.Empty;
 
-        [Column("NOME")]
-        public string Nome { get; set; } = string.Empty;
+    [Required]
+    [StringLength(255)]
+    public string Endereco { get; set; } = string.Empty;
 
-        [Column("LOCALIZACAO")]
-        public string Localizacao { get; set; } = string.Empty;
+    [StringLength(100)]
+    public string? Cidade { get; set; }
 
-        [Column("LARGURA")]
-        public decimal Largura { get; set; }
+    [StringLength(2)]
+    public string? Estado { get; set; }
 
-        [Column("COMPRIMENTO")]
-        public decimal Comprimento { get; set; }
+    [StringLength(10)]
+    public string? Cep { get; set; }
 
-        [Column("AREA_TOTAL")]
-        public decimal AreaTotal { get; set; }
+    [Range(1, int.MaxValue)]
+    public int Capacidade { get; set; } = 100;
 
-        [Column("FILIAL_ID_FILIAL")]
-        public int FilialId { get; set; }
+    [Phone]
+    [StringLength(20)]
+    public string? Telefone { get; set; }
 
-        [ForeignKey("FilialId")]
-        public Filial Filial { get; set; } = null!;
+    [StringLength(500)]
+    public string? Observacoes { get; set; }
 
-        public ICollection<Moto> Motos { get; set; } = new List<Moto>();
-
-        public Patio(string nome, string localizacao, decimal largura, decimal comprimento, decimal areaTotal, int filialId)
-        {
-            Nome = nome;
-            Localizacao = localizacao;
-            Largura = largura;
-            Comprimento = comprimento;
-            AreaTotal = areaTotal;
-            FilialId = filialId;
-        }
-
-        protected Patio() { }
-    }
+    public virtual ICollection<Moto> Motos { get; set; } = new List<Moto>();
 }

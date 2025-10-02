@@ -1,34 +1,148 @@
 [
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.FilialController",
-    "Method": "GetAll",
-    "RelativePath": "api/Filial",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "GetMotos",
+    "RelativePath": "api/Motos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "patioId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PagedResultDto\u00601[[Mottu.Fleet.Application.DTOs.MotoDto, Mottu.Fleet.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.FilialController",
-    "Method": "Create",
-    "RelativePath": "api/Filial",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "CreateMoto",
+    "RelativePath": "api/Motos",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "filialDto",
-        "Type": "Mottu.Fleet.Application.DTOs.FilialDTO",
+        "Name": "dto",
+        "Type": "Mottu.Fleet.Application.DTOs.CreateMotoDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.MotoDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.FilialController",
-    "Method": "GetById",
-    "RelativePath": "api/Filial/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "GetMotosByPatio",
+    "RelativePath": "api/Motos/patio/{patioId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Mottu.Fleet.Application.DTOs.MotoDto, Mottu.Fleet.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "GetMotoByPlaca",
+    "RelativePath": "api/Motos/placa/{placa}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "placa",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.MotoDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "GetMotosByStatus",
+    "RelativePath": "api/Motos/status/{status}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Mottu.Fleet.Application.DTOs.MotoDto, Mottu.Fleet.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "GetMoto",
+    "RelativePath": "api/Motos/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -39,12 +153,20 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.MotoDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.FilialController",
-    "Method": "Update",
-    "RelativePath": "api/Filial/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "UpdateMoto",
+    "RelativePath": "api/Motos/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -55,17 +177,25 @@
         "IsRequired": true
       },
       {
-        "Name": "filialDto",
-        "Type": "Mottu.Fleet.Application.DTOs.FilialDTO",
+        "Name": "dto",
+        "Type": "Mottu.Fleet.Application.DTOs.UpdateMotoDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.MotoDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.FilialController",
-    "Method": "Delete",
-    "RelativePath": "api/Filial/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "DeleteMoto",
+    "RelativePath": "api/Motos/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -79,35 +209,148 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MotoController",
-    "Method": "Get",
-    "RelativePath": "api/Moto",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MotoController",
-    "Method": "Post",
-    "RelativePath": "api/Moto",
-    "HttpMethod": "POST",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "RegisterMaintenance",
+    "RelativePath": "api/Motos/{id}/maintenance",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Mottu.Fleet.Application.DTOs.CreateMotoDTO",
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Mottu.Fleet.API.Controllers.MaintenanceRequest",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "MotoController",
-    "Method": "GetById",
-    "RelativePath": "api/Moto/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "MoveMotoToPatio",
+    "RelativePath": "api/Motos/{id}/move",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "newPatioId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.MotosController",
+    "Method": "UpdateMotoStatus",
+    "RelativePath": "api/Motos/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "newStatus",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "GetPatios",
+    "RelativePath": "api/Patios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PagedResultDto\u00601[[Mottu.Fleet.Application.DTOs.PatioDto, Mottu.Fleet.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "CreatePatio",
+    "RelativePath": "api/Patios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Mottu.Fleet.Application.DTOs.CreatePatioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PatioDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "GetOccupancyReport",
+    "RelativePath": "api/Patios/occupancy-report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Mottu.Fleet.Application.DTOs.PatioDto, Mottu.Fleet.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "GetPatio",
+    "RelativePath": "api/Patios/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -118,12 +361,20 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PatioDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "MotoController",
-    "Method": "Put",
-    "RelativePath": "api/Moto/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "UpdatePatio",
+    "RelativePath": "api/Patios/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -135,16 +386,24 @@
       },
       {
         "Name": "dto",
-        "Type": "Mottu.Fleet.Application.DTOs.CreateMotoDTO",
+        "Type": "Mottu.Fleet.Application.DTOs.UpdatePatioDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PatioDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "MotoController",
-    "Method": "Delete",
-    "RelativePath": "api/Moto/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "DeletePatio",
+    "RelativePath": "api/Patios/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -158,35 +417,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.PatioController",
-    "Method": "GetAll",
-    "RelativePath": "api/Patio",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Mottu.Fleet.API.Controllers.PatioController",
-    "Method": "Create",
-    "RelativePath": "api/Patio",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "patioDto",
-        "Type": "Mottu.Fleet.Application.DTOs.PatioDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Mottu.Fleet.API.Controllers.PatioController",
-    "Method": "GetById",
-    "RelativePath": "api/Patio/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.PatiosController",
+    "Method": "GetPatioWithMotos",
+    "RelativePath": "api/Patios/{id}/details",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -197,12 +430,150 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PatioDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.PatioController",
-    "Method": "Update",
-    "RelativePath": "api/Patio/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "search",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.PagedResultDto\u00601[[Mottu.Fleet.Application.DTOs.UserDto, Mottu.Fleet.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "CreateUser",
+    "RelativePath": "api/Users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Mottu.Fleet.Application.DTOs.CreateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.UserDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "Authenticate",
+    "RelativePath": "api/Users/authenticate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "Mottu.Fleet.API.Controllers.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.UserDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "GetUserByUsername",
+    "RelativePath": "api/Users/username/{username}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.UserDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "GetUser",
+    "RelativePath": "api/Users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.UserDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -213,17 +584,25 @@
         "IsRequired": true
       },
       {
-        "Name": "patioDto",
-        "Type": "Mottu.Fleet.Application.DTOs.PatioDTO",
+        "Name": "dto",
+        "Type": "Mottu.Fleet.Application.DTOs.UpdateUserDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Mottu.Fleet.Application.DTOs.UserDto",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "Mottu.Fleet.API.Controllers.PatioController",
-    "Method": "Delete",
-    "RelativePath": "api/Patio/{id}",
+    "ContainingType": "Mottu.Fleet.API.Controllers.UsersController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Users/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

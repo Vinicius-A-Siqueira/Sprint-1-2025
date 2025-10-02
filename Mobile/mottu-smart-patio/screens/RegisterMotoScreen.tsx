@@ -1,129 +1,98 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, StyleSheet, Image, Alert } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { v4 as uuidv4 } from 'uuid';
 
-import { useNavigation, useRoute, CompositeNavigationProp, RouteProp } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
-
-import type { RootStackParamList, RootTabParamList, Moto } from '../types/types';
-import { saveMoto, updateMoto } from '../utils/storage';
-
-type StackNavProp = NativeStackNavigationProp<RootStackParamList>;
-type TabNavProp = BottomTabNavigationProp<RootTabParamList>;
-type PropsNavigation = CompositeNavigationProp<StackNavProp, TabNavProp>;
-
-type PropsRoute = RouteProp<RootTabParamList, 'Cadastrar Moto'>;
-
-export default function RegisterMotoScreen() {
-  const navigation = useNavigation<PropsNavigation>();
-  const route = useRoute<PropsRoute>();
-
-  const motoToEdit = route.params?.motoToEdit;
-
-  const [placa, setPlaca] = useState(motoToEdit?.placa ?? '');
-  const [status, setStatus] = useState(motoToEdit?.status ?? '');
-  const [image, setImage] = useState<string | null>(motoToEdit?.imagem ?? null);
-
-  useEffect(() => {
-    if (motoToEdit) {
-      setPlaca(motoToEdit.placa);
-      setStatus(motoToEdit.status);
-      setImage(motoToEdit.imagem);
-    }
-  }, [motoToEdit]);
+export default function RegisterMoto({ navigation }: any) {
+  const [placa, setPlaca] = useState('');
+  const [status, setStatus] = useState('Disponível');
+  const [imageUri, setImageUri] = useState<string | null>(null);
 
   const pickImage = async () => {
+    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!permission.granted) {
+      Alert.alert('Permissão necessária', 'Permita acesso às imagens');
+      return;
+    }
     const result = await ImagePicker.launchImageLibraryAsync({
-      quality: 1,
-      base64: false,
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 0.6,
     });
-
-    if (!result.canceled) {
-      setImage(result.assets[0].uri);
+    if (!result.cancelled) {
+      // result.uri for older sdk or result.assets[0].uri for newer
+      const uri = (result as any).uri ?? (result as any).assets?.[0]?.uri;
+      setImageUri(uri);
     }
   };
 
-  const gerarIdUnico = () => {
-    return Date.now().toString() + Math.random().toString(36).substr(2, 5);
+  const takePhoto = async () => {
+    const perm = await ImagePicker.requestCameraPermissionsAsync();
+    if (!perm.granted) {
+      Alert.alert('Permissão câmera', 'Permita acesso à câmera');
+      return;
+    }
+    const result = await ImagePicker.launchCameraAsync({ quality: 0.6 });
+    if (!result.cancelled) {
+      const uri = (result as any).uri ?? (result as any).assets?.[0]?.uri;
+      setImageUri(uri);
+    }
   };
 
-  const salvar = async () => {
-    if (placa && status && image) {
-      if (motoToEdit) {
-        // Atualiza moto existente
-        await updateMoto({ id: motoToEdit.id, placa, status, imagem: image });
-      } else {
-        // Cria nova moto com ID único
-        const novoId = gerarIdUnico();
-        await saveMoto({ id: novoId, placa, status, imagem: image });
-      }
-      navigation.navigate('Tabs', { screen: 'Início' });
-    } else {
-      alert('Por favor, preencha todos os campos e selecione uma imagem.');
+  const save = async () => {
+    if (!placa.trim()) {
+      Alert.alert('Validação', 'Informe a placa');
+      return;
+    }
+
+    const newMoto = { id: uuidv4(), placa: placa.trim(), status, imagemUri: imageUri ?? null };
+    try {
+      const raw = await AsyncStorage.getItem('motos');
+      const list = raw ? JSON.parse(raw) : [];
+      list.unshift(newMoto);
+      await AsyncStorage.setItem('motos', JSON.stringify(list));
+      Alert.alert('Sucesso', 'Moto cadastrada');
+      navigation.navigate('Home');
+    } catch (e) {
+      console.warn(e);
+      Alert.alert('Erro', 'Não foi possível salvar');
     }
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Placa:</Text>
-      <TextInput style={styles.input} value={placa} onChangeText={setPlaca} />
+      <Text style={styles.label}>Placa</Text>
+      <TextInput style={styles.input} value={placa} onChangeText={setPlaca} placeholder="ABC1D23" />
+      <Text style={styles.label}>Status</Text>
+      <View style={{ marginBottom: 12 }}>
+        <Button title={status} onPress={() => setStatus(status === 'Disponível' ? 'Em manutenção' : 'Disponível')} />
+      </View>
 
-      <Text style={styles.label}>Status:</Text>
-      <TextInput style={styles.input} value={status} onChangeText={setStatus} />
+      <Text style={styles.label}>Imagem</Text>
+      {imageUri ? (
+        <Image source={{ uri: imageUri }} style={styles.preview} />
+      ) : (
+        <View style={[styles.preview, { justifyContent: 'center', alignItems: 'center' }]}>
+          <Text>Sem imagem selecionada</Text>
+        </View>
+      )}
+      <View style={styles.row}>
+        <Button title="Escolher da galeria" onPress={pickImage} />
+        <View style={{ width: 8 }} />
+        <Button title="Tirar foto" onPress={takePhoto} />
+      </View>
 
-      <TouchableOpacity onPress={pickImage} style={styles.button}>
-        <Text style={styles.buttonText}>Selecionar Imagem</Text>
-      </TouchableOpacity>
-
-      {image && <Image source={{ uri: image }} style={styles.preview} />}
-
-      <Button title={motoToEdit ? 'Atualizar Moto' : 'Salvar Moto'} onPress={salvar} color="#0f0" />
+      <View style={{ marginTop: 18 }}>
+        <Button title="Salvar" onPress={save} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    padding: 20,
-  },
-  label: {
-    fontWeight: 'bold',
-    marginBottom: 5,
-    color: '#0f0',
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#0f0',
-    padding: 10,
-    marginBottom: 15,
-    borderRadius: 5,
-    color: '#0f0',
-  },
-  button: {
-    backgroundColor: '#000',
-    padding: 12,
-    borderRadius: 5,
-    marginBottom: 15,
-    borderWidth: 1,
-    borderColor: '#0f0',
-  },
-  buttonText: {
-    color: '#0f0',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  preview: {
-    width: '100%',
-    height: 200,
-    marginBottom: 20,
-    resizeMode: 'contain',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#0f0',
-  },
+  container: { padding: 12, flex: 1 },
+  label: { fontWeight: '700', marginTop: 8 },
+  input: { borderWidth: 1, borderColor: '#ddd', padding: 8, borderRadius: 6, marginTop: 6 },
+  preview: { width: '100%', height: 180, borderRadius: 8, backgroundColor: '#fafafa', marginTop: 8 },
+  row: { flexDirection: 'row', marginTop: 8 },
 });

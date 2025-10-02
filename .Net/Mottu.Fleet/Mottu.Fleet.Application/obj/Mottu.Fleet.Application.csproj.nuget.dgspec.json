@@ -71,7 +71,7 @@
             },
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.23.80, )"
+              "version": "[9.23.90, )"
             }
           },
           "imports": [
@@ -223,7 +223,7 @@
             },
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.23.80, )"
+              "version": "[9.23.90, )"
             }
           },
           "imports": [

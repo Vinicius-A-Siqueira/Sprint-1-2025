@@ -1,43 +1,43 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { Moto } from '../types/types';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
-interface Props {
-  moto: Moto;
-  onPress: () => void;
-}
+type Props = {
+  id: string;
+  placa: string;
+  status: string;
+  imagemUri?: string | null;
+};
 
-export default function MotoCard({ moto, onPress }: Props) {
+export default function MotoCard({ placa, status, imagemUri }: Props) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Image source={{ uri: moto.imagem }} style={styles.image} />
-      <View>
-        <Text style={styles.placa}>{moto.placa}</Text>
-        <Text style={styles.status}>{moto.status}</Text>
+    <View style={styles.card}>
+      {imagemUri ? (
+        <Image source={{ uri: imagemUri }} style={styles.image} />
+      ) : (
+        <View style={[styles.image, styles.imagePlaceholder]}>
+          <Text style={{ color: '#666' }}>Sem imagem</Text>
+        </View>
+      )}
+      <View style={styles.info}>
+        <Text style={styles.placa}>{placa}</Text>
+        <Text style={styles.status}>Status: {status}</Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#0f0',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 10,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: '#fff',
+    marginBottom: 12,
+    elevation: 2,
     flexDirection: 'row',
-    alignItems: 'center',
   },
-  image: {
-    width: 60,
-    height: 40,
-    marginRight: 10,
-  },
-  placa: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  status: {
-    fontSize: 14,
-  },
+  image: { width: 120, height: 90 },
+  imagePlaceholder: { justifyContent: 'center', alignItems: 'center', backgroundColor: '#f1f1f1' },
+  info: { padding: 12, flex: 1, justifyContent: 'center' },
+  placa: { fontSize: 16, fontWeight: '700' },
+  status: { marginTop: 6, color: '#666' },
 });
