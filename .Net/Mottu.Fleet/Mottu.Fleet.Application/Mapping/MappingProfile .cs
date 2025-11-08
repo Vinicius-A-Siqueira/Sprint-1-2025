@@ -9,27 +9,26 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         // Usuário
-        CreateMap<User, UserDto>();
-        CreateMap<CreateUserDto, User>();
-        CreateMap<UpdateUserDto, User>()
+        CreateMap<UsuarioMongo, UserDto>();
+        CreateMap<CreateUserDto, UsuarioMongo>();
+        CreateMap<UpdateUserDto, UsuarioMongo>()
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
         // Pátio
-        CreateMap<Patio, PatioDto>()
+        CreateMap<PatioMongo, PatioDto>()
             .ForMember(dest => dest.QuantidadeMotos, opt => opt.Ignore())
             .ForMember(dest => dest.TaxaOcupacao, opt => opt.Ignore());
 
-        CreateMap<CreatePatioDto, Patio>();
-        CreateMap<UpdatePatioDto, Patio>()
+        CreateMap<CreatePatioDto, PatioMongo>();
+        CreateMap<UpdatePatioDto, PatioMongo>()
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
         // Moto
-        CreateMap<Moto, MotoDto>()
-            .ForMember(dest => dest.PatioNome, opt => opt.MapFrom(src => src.Patio.Nome))
+        CreateMap<MotoMongo, MotoDto>()
             .ForMember(dest => dest.StatusDescricao, opt => opt.MapFrom(src => src.Status.ToString()));
 
-        CreateMap<CreateMotoDto, Moto>();
-        CreateMap<UpdateMotoDto, Moto>()
+        CreateMap<CreateMotoDto, MotoMongo>();
+        CreateMap<UpdateMotoDto, MotoMongo>()
             .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
     }
 }

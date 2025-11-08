@@ -6,11 +6,11 @@ namespace Mottu.Fleet.Domain.Interfaces;
 
 public interface IUserRepository
 {
-    Task<IEnumerable<User>> GetAllAsync(int page, int pageSize);
-    Task<User?> GetByIdAsync(int id);
-    Task<User?> GetByUsernameAsync(string username);
-    Task AddAsync(User user);
-    Task UpdateAsync(User user);
+    Task<IEnumerable<UsuarioMongo>> GetAllAsync(int page, int pageSize);
+    Task<UsuarioMongo?> GetByIdAsync(int id);
+    Task<UsuarioMongo?> GetByUsernameAsync(string username);
+    Task AddAsync(UsuarioMongo user);
+    Task UpdateAsync(UsuarioMongo user);
     Task DeleteAsync(int id);
     Task<int> CountAsync();
     Task<bool> UsernameExistsAsync(string username, int? excludeId = null);

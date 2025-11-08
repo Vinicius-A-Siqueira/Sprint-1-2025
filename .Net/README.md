@@ -1,329 +1,451 @@
-# Sprint-1-2025
+# 🚀 Mottu Fleet Management System - CP5
 
-![image](https://github.com/user-attachments/assets/6335eded-1ce5-41f1-8fbd-7921804f3f67)
+**MongoDB e Health Check com .NET - 2025**
 
-## 👥 Integrantes
-
-- **Gabriel Camargo** – RM557879  
-- **Kauan Felipe** – RM557954  
-- **Vinicius Alves** – RM551939
-
-## 🏗️ Justificativa da Arquitetura
-
-A arquitetura foi baseada na Clean Architecture para garantir escalabilidade, manutenibilidade e independência tecnológica do software. Esse padrão separa o domínio central do sistema (regras de negócio e entidades) das camadas externas de infraestrutura (banco de dados, frameworks, web/API), permitindo que mudanças em tecnologia ou ferramentas não afetem a lógica de negócio.
-
-- **Independência de tecnologia**: O domínio não depende de frameworks, bancos ou bibliotecas externas, facilitando upgrades e migrações tecnológicas sem afetar as regras de negócio.
-- **Alta testabilidade:** É possível testar as regras de negócio isoladamente, sem dependências externas, aumentando a confiabilidade dos testes.
-- **Adaptabilidade::** Novos requisitos e integrações podem ser implementados com menor impacto no código existente.
-- **Facilidade de manutenção:** Alterações, correções de bugs e adaptações a novas necessidades são feitas de forma localizada, reduzindo risco de efeitos colaterais.
-
-Com Clean Architecture, evoluir e dar manutenção na aplicação torna-se mais ágil, estável e seguro, promovendo um crescimento sustentável do projeto sem criar “gambiarra” ou débitos técnicos sérios no longo prazo.
+Uma aplicação moderna de gerenciamento de frotas de motocicletas desenvolvida com ASP.NET Core, MongoDB e seguindo os princípios de Clean Architecture e Domain-Driven Design (DDD).
 
 ---
 
-### Clean Architecture (Arquitetura Limpa)
+## 👥 Integrantes
 
-A aplicação foi desenvolvida seguindo os princípios da **Clean Architecture**, garantindo:
+- **Gabriel Camargo** – RM557879
+- **Kauan Felipe** – RM557954
+- **Vinicius Alves** – RM551939
 
-- **Separação de Responsabilidades**: Cada camada tem uma responsabilidade específica
-- **Independência de Frameworks**: O domínio não depende de tecnologias externas
-- **Testabilidade**: Facilita a criação de testes unitários e de integração
-- **Manutenibilidade**: Código organizando e fácil de manter
+---
 
-### Estrutura das Camadas
+## 📋 Descrição do Projeto
+
+A **Mottu** enfrenta desafios operacionais na gestão e localização de motos nos pátios de suas filiais. Este projeto resolve esse problema fornecendo:
+
+✅ Localização precisa de cada moto nos pátios  
+✅ Visualização em tempo real da disposição das motos  
+✅ Modelo digital interativo e adaptável para diferentes pátios  
+✅ Interface web intuitiva para acesso rápido  
+✅ Escalabilidade para múltiplas filiais  
+
+---
+
+## 🎯 Funcionalidades Implementadas (CP5)
+
+### ✨ Arquitetura
+- ✅ **Clean Architecture** com 4 camadas bem definidas
+- ✅ **Domain-Driven Design (DDD)** com Agregados Raiz e Value Objects
+- ✅ **Clean Code** aplicando princípios SRP, DRY, KISS, YAGNI
+
+### 🗄️ Banco de Dados
+- ✅ **Integração com MongoDB** (local ou Atlas)
+- ✅ **CRUD completo** para 3 collections: Motos, Pátios, Usuários
+- ✅ **DTOs e validações** em todas as requisições
+- ✅ **Índices únicos** para garantir integridade de dados
+
+### 💚 Monitoramento
+- ✅ **Health Check** monitorando aplicação e MongoDB
+- ✅ **Endpoint `/health`** com respostas estruturadas
+- ✅ **Verificações adicionais** de conectividade
+
+### 📚 Documentação
+- ✅ **Swagger** configurado com versionamento (v1, v2)
+- ✅ **Endpoints documentados** com exemplos e responses
+- ✅ **Dois ambientes**: Oracle (v1) e MongoDB (v2)
+
+---
+
+## 🏗️ Estrutura do Projeto
 
 ```
-Mottu.Fleet.Domain/          # Entidades, Enums, Interfaces do domínio
-Mottu.Fleet.Application/     # DTOs, Services, Validações, Regras de negócio
-Mottu.Fleet.Infrastructure/  # Repositórios, DbContext, Implementações externas
-Mottu.Fleet.API/            # Controllers, Configurações, Startup
+📦 Mottu.Fleet
+ ┣ 📂 Mottu.Fleet.API
+ ┃ ┣ 📂 Controllers
+ ┃ ┃ ┣ MotosMongoController.cs
+ ┃ ┃ ┣ PatiosMongoController.cs
+ ┃ ┃ ┗ UsuariosMongoController.cs
+ ┃ ┣ Program.cs
+ ┃ ┣ appsettings.json
+ ┃ ┗ Mottu.Fleet.API.csproj
+ ┃
+ ┣ 📂 Mottu.Fleet.Application
+ ┃ ┣ 📂 DTOs
+ ┃ ┗ 📂 Handlers
+ ┃
+ ┣ 📂 Mottu.Fleet.Domain
+ ┃ ┣ 📂 Entities
+ ┃ ┃ ┣ MotoMongo.cs
+ ┃ ┃ ┣ PatioMongo.cs
+ ┃ ┃ ┗ UsuarioMongo.cs
+ ┃ ┣ 📂 ValueObjects
+ ┃ ┃ ┗ Placa.cs (validação de placa)
+ ┃ ┣ 📂 Aggregates
+ ┃ ┃ ┗ FrotaAggregate.cs
+ ┃ ┗ 📂 Interfaces
+ ┃
+ ┗ 📂 Mottu.Fleet.Infrastructure
+   ┣ 📂 Configuration
+   ┃ ┗ MongoDbSettings.cs
+   ┣ 📂 Data
+   ┃ ┗ MongoDbContext.cs
+   ┣ 📂 Repositories
+   ┃ ┣ MotoMongoRepository.cs
+   ┃ ┣ PatioMongoRepository.cs
+   ┃ ┗ UsuarioMongoRepository.cs
+   ┗ 📂 HealthChecks
 ```
 
-### Tecnologias Utilizadas
+---
 
-- **.NET 8**: Framework principal
-- **Entity Framework Core**: ORM para acesso aos dados
-- **Oracle Database**: Banco de dados relacional
-- **AutoMapper**: Mapeamento entre entidades e DTOs
-- **Swagger/OpenAPI**: Documentação interativa da API
-- **Dependency Injection**: Injeção de dependência nativa do .NET
-
-### Padrões Implementados
-
-- **Repository Pattern**: Abstração da camada de dados
-- **Unit of Work**: Gerenciamento de transações
-- **DTO Pattern**: Transferência de dados entre camadas
-- **Dependency Inversion**: Inversão de dependências
-
-## 🚀 Instruções de Execução da API
+## 🔧 Configuração do Ambiente
 
 ### Pré-requisitos
 
-- .NET 8 SDK
-- Oracle Database (local ou remoto)
-- Visual Studio 2022 ou VS Code
+- **.NET 8.0 SDK** ou superior  
+- **MongoDB 6.0** ou superior (local ou [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- **Visual Studio 2022** ou **Visual Studio Code**
+- **Git** para versionamento
 
-### 1. Clone o Repositório
+### Instalação do MongoDB
 
+#### Windows
+1. Baixar [MongoDB Community Edition](https://www.mongodb.com/try/download/community)
+2. Executar o instalador
+3. Selecionar "Run service as Network Service user" (recomendado)
+4. MongoDB estará disponível em `mongodb://localhost:27017`
+
+#### macOS
 ```bash
-git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025
-cd Sprint-1-2025\Devops\mottuapi
+brew install mongodb-community@7.0
+brew services start mongodb-community@7.0
 ```
 
-### 2. Configure a String de Conexão
+#### Linux (Ubuntu)
+```bash
+sudo apt-get install -y mongodb
+sudo systemctl start mongodb
+```
 
-Edite o arquivo `appsettings.json` na pasta `Mottu.Fleet.API`:
+### Clonar o Repositório
+
+```bash
+git clone https://github.com/Vinicius-A-Siqueira/Sprint-1-2025.git
+cd Sprint-1-2025/.Net
+```
+
+### Configurar a Connection String
+
+No arquivo `Mottu.Fleet.API/appsettings.json`, configure:
 
 ```json
 {
-  "ConnectionStrings": {
-    "DefaultConnection": "Data Source=localhost:1521/orcl;User Id=seu_usuario;Password=sua_senha;"
+  "MongoDbSettings": {
+    "ConnectionString": "mongodb://localhost:27017",
+    "DatabaseName": "MottuFleetDB",
+    "Collections": {
+      "Motos": "Motos",
+      "Patios": "Patios",
+      "Usuarios": "Usuarios"
+    }
   }
 }
 ```
 
-### 3. Execute os Scripts do Banco
-
-Execute os scripts SQL disponíveis na pasta `Database/`:
-
-```sql
--- Execute na seguinte ordem:
--- 1. create_tables.sql (criação das tabelas)
--- 2. seed_data.sql (dados iniciais)
+**Para MongoDB Atlas (nuvem):**
+```json
+{
+  "MongoDbSettings": {
+    "ConnectionString": "mongodb+srv://usuario:senha@cluster.mongodb.net/?retryWrites=true&w=majority",
+    "DatabaseName": "MottuFleetDB",
+    "Collections": {
+      "Motos": "Motos",
+      "Patios": "Patios",
+      "Usuarios": "Usuarios"
+    }
+  }
+}
 ```
 
-### 4. Instale as Dependências
-
-```bash
-dotnet restore
-```
-
-### 5. Execute a Aplicação
+### Instalar Dependências
 
 ```bash
 cd Mottu.Fleet.API
+dotnet restore
+```
+
+### Executar a Aplicação
+
+```bash
 dotnet run
 ```
 
-A API estará disponível em:
-- **HTTP**: `http://localhost:5010`
-- **HTTPS**: `https://localhost:5011`
-- **Swagger**: `http://localhost:5010/swagger`
+A aplicação estará disponível em: `https://localhost:7000` (ou porta informada no console)
 
-## 📚 Exemplos de Uso dos Endpoints
+---
 
-### Autenticação
-A API utiliza autenticação baseada em tokens JWT (caso implementada).
+## 🧪 Testando a API
 
-### 🏍️ Motos
+### Swagger UI
+Acesse: `https://localhost:7000/swagger`
 
-#### Listar Motos
-```http
-GET /api/motos?page=1&pageSize=10&search=honda
+Aqui você pode:
+- ✅ Visualizar todos os endpoints
+- ✅ Testar requisições diretamente
+- ✅ Ver exemplos de responses
+- ✅ Alternar entre v1 e v2 da API
+
+### Health Check
+```bash
+curl https://localhost:7000/health
 ```
 
-**Resposta:**
+Resposta esperada:
 ```json
 {
-  "items": [
-    {
-      "id": 1,
-      "placa": "ABC1D23",
-      "modelo": "Mottu Sport 110i",
-      "patioId": 1,
-      "patioNome": "Patio Norte",
-      "ano": 2023,
-      "cor": "Branca",
-      "quilometragem": 0,
-      "status": 1,
-      "statusDescricao": "Disponivel"
+  "status": "Healthy",
+  "totalDuration": "00:00:00.1234567",
+  "entries": {
+    "mongodb": {
+      "status": "Healthy",
+      "duration": "00:00:00.0987654",
+      "tags": ["db", "mongodb"]
     }
-  ],
-  "totalItems": 1,
-  "page": 1,
-  "pageSize": 10,
-  "totalPages": 1
+  }
 }
 ```
 
-#### Buscar Moto por ID
-```http
-GET /api/motos/1
+---
+
+## 📡 Endpoints Disponíveis
+
+### Motos (v2 - MongoDB)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/api/v2/motos` | Listar todas as motos |
+| GET | `/api/v2/motos/{id}` | Obter moto por ID |
+| GET | `/api/v2/motos/placa/{placa}` | Obter moto por placa |
+| GET | `/api/v2/motos/patio/{patioId}` | Listar motos de um pátio |
+| GET | `/api/v2/motos/status/{status}` | Listar motos por status |
+| POST | `/api/v2/motos` | Criar nova moto |
+| PUT | `/api/v2/motos/{id}` | Atualizar moto |
+| DELETE | `/api/v2/motos/{id}` | Deletar moto |
+
+### Pátios (v2 - MongoDB)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/api/v2/patios` | Listar todos os pátios |
+| GET | `/api/v2/patios/{id}` | Obter pátio por ID |
+| GET | `/api/v2/patios/ativos` | Listar pátios ativos |
+| GET | `/api/v2/patios/disponiveis` | Listar pátios com vagas |
+| POST | `/api/v2/patios` | Criar novo pátio |
+| PUT | `/api/v2/patios/{id}` | Atualizar pátio |
+| PATCH | `/api/v2/patios/{id}/desativar` | Desativar pátio |
+| DELETE | `/api/v2/patios/{id}` | Deletar pátio |
+
+### Usuários (v2 - MongoDB)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/api/v2/usuarios` | Listar todos os usuários |
+| GET | `/api/v2/usuarios/{id}` | Obter usuário por ID |
+| GET | `/api/v2/usuarios/username/{username}` | Obter usuário por username |
+| GET | `/api/v2/usuarios/perfil/{perfil}` | Listar usuários por perfil |
+| GET | `/api/v2/usuarios/ativos` | Listar usuários ativos |
+| POST | `/api/v2/usuarios` | Criar novo usuário |
+| PUT | `/api/v2/usuarios/{id}` | Atualizar usuário |
+| PATCH | `/api/v2/usuarios/{id}/ultimo-acesso` | Atualizar último acesso |
+| PATCH | `/api/v2/usuarios/{id}/desativar` | Desativar usuário |
+| DELETE | `/api/v2/usuarios/{id}` | Deletar usuário |
+
+### Monitoramento
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/health` | Status de saúde da aplicação |
+
+---
+
+## 📊 Exemplos de Uso
+
+### Criar uma Moto
+```bash
+curl -X POST https://localhost:7000/api/v2/motos \
+  -H "Content-Type: application/json" \
+  -d '{
+    "placa": "ABC1234",
+    "modelo": "Honda CG 160",
+    "ano": 2023,
+    "cor": "Vermelha",
+    "status": "Disponivel",
+    "patioId": "id_do_patio"
+  }'
 ```
 
-#### Criar Nova Moto
-```http
-POST /api/motos
-Content-Type: application/json
-
-{
-  "placa": "XYZ9876",
-  "modelo": "Mottu Delivery",
-  "patioId": 1,
-  "ano": 2023,
-  "cor": "Vermelha",
-  "quilometragem": 0,
-  "status": 1,
-  "chassi": "9BD12345678901236",
-  "numeroMotor": "MT110XYZ123456"
-}
+### Criar um Pátio
+```bash
+curl -X POST https://localhost:7000/api/v2/patios \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nome": "Pátio Central",
+    "endereco": "Av. Principal, 1000",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01000-000",
+    "capacidade": 100,
+    "telefone": "(11) 4000-5000"
+  }'
 ```
 
-#### Atualizar Moto
-```http
-PUT /api/motos/1
-Content-Type: application/json
-
-{
-  "id": 1,
-  "placa": "ABC1D23",
-  "modelo": "Mottu Sport 110i",
-  "patioId": 1,
-  "ano": 2023,
-  "cor": "Azul",
-  "quilometragem": 1500,
-  "status": 2
-}
+### Criar um Usuário
+```bash
+curl -X POST https://localhost:7000/api/v2/usuarios \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "vinicius",
+    "password": "senhaSegura123",
+    "perfil": "Admin",
+    "fullName": "Vinicius Alves",
+    "email": "vinicius@mottu.com",
+    "phone": "(11) 99999-9999"
+  }'
 ```
 
-#### Deletar Moto
-```http
-DELETE /api/motos/1
+---
+
+## 🏗️ Arquitetura e Design
+
+### Clean Architecture
+
+A aplicação está organizada em 4 camadas:
+
+1. **API Layer** - Controllers, validações e Swagger
+2. **Application Layer** - DTOs e casos de uso
+3. **Domain Layer** - Entidades, Value Objects e regras de negócio
+4. **Infrastructure Layer** - Acesso a dados, MongoDB e Health Checks
+
+### Domain-Driven Design (DDD)
+
+- **Entities**: `MotoMongo`, `PatioMongo`, `UsuarioMongo`
+- **Value Object**: `Placa` (valida formato de placa brasileira)
+- **Aggregate Root**: `FrotaAggregate` (gerencia coleção de motos)
+
+### Princípios de Clean Code
+
+- **SRP** (Single Responsibility): Cada classe tem uma única responsabilidade
+- **DRY** (Don't Repeat Yourself): Código reutilizável e sem duplicação
+- **KISS** (Keep It Simple, Stupid): Soluções simples e objetivas
+- **YAGNI** (You Aren't Gonna Need It): Apenas funcionalidades necessárias
+
+---
+
+## 🔐 Segurança
+
+Recomendações de segurança:
+
+- [ ] Usar HTTPS em produção
+- [ ] Implementar autenticação (JWT/OAuth2)
+- [ ] Validar e sanitizar entradas
+- [ ] Usar variáveis de ambiente para secrets
+- [ ] Implementar rate limiting
+- [ ] Adicionar CORS quando necessário
+
+---
+
+## 📈 Métricas de Código
+
+| Métrica | Valor |
+|---------|-------|
+| Linhas de Código | ~2000+ |
+| Repositórios | 3 (Motos, Pátios, Usuários) |
+| Controllers | 3 |
+| Endpoints | 24+ |
+| Testes | Em desenvolvimento |
+
+---
+
+## 🐛 Troubleshooting
+
+### MongoDB não conecta
+```bash
+# Verificar se o MongoDB está rodando
+mongosh
+# ou
+mongo
 ```
 
-### 🏢 Pátios
-
-#### Listar Pátios
-```http
-GET /api/patios?page=1&pageSize=10
+### Porta 7000 já em uso
+```bash
+# Usar uma porta diferente
+dotnet run --urls="https://localhost:7001"
 ```
 
-#### Buscar Pátio por ID
-```http
-GET /api/patios/1
+### Erro ao restaurar pacotes
+```bash
+dotnet clean
+dotnet restore
 ```
 
-#### Criar Novo Pátio
-```http
-POST /api/patios
-Content-Type: application/json
+---
 
-{
-  "nome": "Patio Oeste",
-  "endereco": "Rua das Flores, 456",
-  "cidade": "São Paulo",
-  "estado": "SP",
-  "cep": "01234-567",
-  "capacidade": 120,
-  "telefone": "(11) 9999-9999"
-}
-```
+## 📚 Tecnologias Utilizadas
 
-### 👤 Usuários
+- **Runtime**: .NET 8.0
+- **Framework**: ASP.NET Core
+- **Banco de Dados**: MongoDB
+- **ORM**: MongoDB.Driver
+- **Documentação**: Swagger/OpenAPI
+- **Health Checks**: AspNetCore.HealthChecks
+- **Versionamento**: API versioning com Swagger
 
-#### Listar Usuários
-```http
-GET /api/usuarios?page=1&pageSize=10
-```
+---
 
-#### Buscar Usuário por ID
-```http
-GET /api/usuarios/1
-```
+## 📝 Commits Semânticos
 
-#### Criar Novo Usuário
-```http
-POST /api/usuarios
-Content-Type: application/json
-
-{
-  "username": "operador2",
-  "password": "senha123",
-  "perfil": "ROLE_OPERADOR",
-  "fullName": "João Silva",
-  "email": "joao@mottu.com",
-  "phone": "(11) 98765-4321",
-  "status": 1
-}
-```
-
-## 🧪 Comando para Rodar os Testes
-
-### Testes Unitários
+O projeto utiliza commits semânticos:
 
 ```bash
-# Executar todos os testes
-dotnet test
-
-# Executar testes com relatório de cobertura
-dotnet test --collect:"XPlat Code Coverage"
-
-# Executar testes de um projeto específico
-dotnet test Mottu.Fleet.Tests.Unit
-
-# Executar testes com verbose
-dotnet test --verbosity normal
+git commit -m "feat: adiciona integração com MongoDB"
+git commit -m "feat: implementa CRUD completo para Motos"
+git commit -m "fix: corrige validação de placa"
+git commit -m "refactor: simplifica lógica de repositório"
+git commit -m "docs: atualiza README com instruções"
 ```
 
-### Testes de Integração
+---
 
-```bash
-# Executar apenas testes de integração
-dotnet test Mottu.Fleet.Tests.Integration
+## 🤝 Contribuindo
 
-# Executar testes com filtro
-dotnet test --filter Category=Integration
-```
+Para contribuir:
 
-### Gerar Relatório de Cobertura
+1. Fork o repositório
+2. Crie uma branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'feat: add AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
-```bash
-# Instalar ferramenta de relatório
-dotnet tool install -g dotnet-reportgenerator-globaltool
+---
 
-# Gerar relatório
-reportgenerator -reports:"coverage.cobertura.xml" -targetdir:"coveragereport"
-```
+## 📞 Contato
 
-## 📊 Status dos Enums
+Para dúvidas ou sugestões:
 
-### MotoStatus
-- `1` - Disponível
-- `2` - Em Uso
-- `3` - Em Manutenção
-- `4` - Fora de Serviço
-- `5` - Reservada
+- **Vinicius Alves** (RM551939)
+- **Gabriel Camargo** (RM557879)
+- **Kauan Felipe** (RM557954)
 
-### UserStatus
-- `1` - Ativo
-- `2` - Inativo
-- `3` - Bloqueado
+---
 
-## 🔧 Configurações Adicionais
+## 📜 Licença
 
-### Variáveis de Ambiente
+Este projeto é parte do desafio **CP5 - FIAP 2TDS 2025**.
 
-```bash
-# Ambiente de desenvolvimento
-ASPNETCORE_ENVIRONMENT=Development
+---
 
-# String de conexão (alternativa ao appsettings.json)
-ConnectionStrings__DefaultConnection="Data Source=localhost:1521/XE;User Id=usuario;Password=senha;"
-```
+## 🎓 Referências
 
-## 📝 Observações
+- [ASP.NET Core Documentation](https://learn.microsoft.com/en-us/aspnet/core/)
+- [MongoDB C# Driver](https://www.mongodb.com/docs/drivers/csharp/)
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [Domain-Driven Design](https://martinfowler.com/bliki/DomainDrivenDesign.html)
 
-- A API utiliza Entity Framework InMemory em desenvolvimento para facilitar os testes
-- Em produção, configure corretamente a string de conexão do Oracle
-- Os dados são inicializados automaticamente através do `DbInitializer`
-- A documentação completa está disponível via Swagger UI
+---
 
-## 🤝 Contribuições
-
-Para contribuir com o projeto:
-
-1. Faça fork do repositório
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -am 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Crie um Pull Request
+**Desenvolvido com ❤️ durante o CP5 - FIAP 2TDS 2025**

@@ -15,7 +15,6 @@ public class MotoDto
     public int Ano { get; set; }
     public string? Cor { get; set; }
     public int Quilometragem { get; set; }
-    public MotoStatus Status { get; set; }
     public string StatusDescricao { get; set; } = string.Empty;
     public DateTime? UltimaManutencao { get; set; }
     public DateTime? ProximaManutencao { get; set; }

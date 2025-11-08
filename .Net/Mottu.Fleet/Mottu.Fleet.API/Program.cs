@@ -1,97 +1,105 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Mottu.Fleet.Application.Interfaces;
-using Mottu.Fleet.Application.Mappings;
-using Mottu.Fleet.Application.Services;
-using Mottu.Fleet.Domain.Interfaces;
+﻿using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using MongoDB.Driver;
+using Mottu.Fleet.Infrastructure.Configuration;
 using Mottu.Fleet.Infrastructure.Data;
 using Mottu.Fleet.Infrastructure.Repositories;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// MongoDB Settings
+builder.Services.Configure<MongoDbSettings>(
+    builder.Configuration.GetSection("MongoDbSettings"));
+
+// Registrar IMongoClient como Singleton
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var connectionString = builder.Configuration["MongoDbSettings:ConnectionString"];
+    return new MongoClient(connectionString);
+});
+
+// MongoDbContext
+builder.Services.AddSingleton<MongoDbContext>();
+
+// Repositórios
+builder.Services.AddScoped<MotoMongoRepository>();
+builder.Services.AddScoped<PatioMongoRepository>();
+builder.Services.AddScoped<UsuarioMongoRepository>();
+
+// Health Checks - VERSÃO CORRIGIDA COM LAMBDA
+builder.Services.AddHealthChecks()
+    .AddMongoDb(
+        sp => new MongoClient(builder.Configuration["MongoDbSettings:ConnectionString"]!),
+        name: "mongodb",
+        failureStatus: HealthStatus.Unhealthy,
+        tags: new[] { "db", "mongodb" },
+        timeout: TimeSpan.FromSeconds(3));
+
+// Controllers
 builder.Services.AddControllers();
-
-builder.Services.AddDbContext<FleetDbContext>(options =>
-{
-    if (builder.Environment.IsDevelopment())
-    {
-        options.UseInMemoryDatabase("MottuFleetDb");
-    }
-    else
-    {
-        options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"));
-    }
-});
-
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IPatioService, PatioService>();
-builder.Services.AddScoped<IMotoService, MotoService>();
-
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IPatioRepository, PatioRepository>();
-builder.Services.AddScoped<IMotoRepository, MotoRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-
-
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+
+// Swagger com versionamento
+builder.Services.AddSwaggerGen(options =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
     {
-        Title = "Mottu Fleet Management API",
+        Title = "Mottu Fleet API",
         Version = "v1",
-        Description = "API para gerenciamento da frota Mottu.",
-        Contact = new OpenApiContact
-        {
-            Name = "Equipe Mottu",
-            Email = "dev@mottu.com.br",
-            Url = new Uri("https://mottu.com.br")
-        }
+        Description = "API de gerenciamento de frotas - Versão 1 (Oracle)"
     });
 
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    c.IncludeXmlComments(xmlPath);
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("Development", policy =>
+    options.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo
     {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        Title = "Mottu Fleet API",
+        Version = "v2",
+        Description = "API de gerenciamento de frotas - Versão 2 (MongoDB)"
     });
 });
-
-builder.Services.AddLogging();
 
 var app = builder.Build();
+
+// Testar conexão MongoDB ao iniciar
+using (var scope = app.Services.CreateScope())
+{
+    try
+    {
+        var mongoContext = scope.ServiceProvider.GetRequiredService<MongoDbContext>();
+        var isConnected = await mongoContext.TestConnectionAsync();
+
+        if (isConnected)
+        {
+            Console.WriteLine("✅ MongoDB conectado com sucesso!");
+        }
+        else
+        {
+            Console.WriteLine("❌ Falha ao conectar com MongoDB!");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Erro ao conectar MongoDB: {ex.Message}");
+    }
+}
+
+// Health Check Endpoint
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
+    app.UseSwaggerUI(options =>
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mottu Fleet API v1");
-        c.RoutePrefix = string.Empty;
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Mottu Fleet API v1");
+        options.SwaggerEndpoint("/swagger/v2/swagger.json", "Mottu Fleet API v2");
     });
-
-    app.UseCors("Development");
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
-if (app.Environment.IsDevelopment())
-{
-    using var scope = app.Services.CreateScope();
-    var dbContext = scope.ServiceProvider.GetRequiredService<FleetDbContext>();
-    await DbInitializer.InitializeAsync(dbContext);
-}
-
 app.Run();

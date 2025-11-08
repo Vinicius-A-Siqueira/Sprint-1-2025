@@ -26,9 +26,6 @@ public class UpdateMotoDto
 
     [Range(0, int.MaxValue)]
     public int? Quilometragem { get; set; }
-
-    public MotoStatus? Status { get; set; }
-
     public DateTime? UltimaManutencao { get; set; }
 
     public DateTime? ProximaManutencao { get; set; }

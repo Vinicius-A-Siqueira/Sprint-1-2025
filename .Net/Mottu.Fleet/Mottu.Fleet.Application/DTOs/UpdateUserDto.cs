@@ -27,6 +27,4 @@ public class UpdateUserDto
     [Phone]
     [StringLength(20)]
     public string? Phone { get; set; }
-
-    public UserStatus? Status { get; set; }
 }
