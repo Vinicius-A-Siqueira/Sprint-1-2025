@@ -1,0 +1,52 @@
+[
+  {
+    "id_sensor": 1,
+    "tipo": "GPS",
+    "fabricante": "SensorTech"
+  },
+  {
+    "id_sensor": 2,
+    "tipo": "Temperatura",
+    "fabricante": "ClimaSens"
+  },
+  {
+    "id_sensor": 3,
+    "tipo": "Umidade",
+    "fabricante": "ClimaSens"
+  },
+  {
+    "id_sensor": 4,
+    "tipo": "Pressão",
+    "fabricante": "SensorTech"
+  },
+  {
+    "id_sensor": 5,
+    "tipo": "Proximidade",
+    "fabricante": "ProxiTech"
+  },
+  {
+    "id_sensor": 6,
+    "tipo": "Câmera",
+    "fabricante": "VisionTech"
+  },
+  {
+    "id_sensor": 7,
+    "tipo": "Temperatura",
+    "fabricante": "HeatWave"
+  },
+  {
+    "id_sensor": 8,
+    "tipo": "GPS",
+    "fabricante": "TrackMaster"
+  },
+  {
+    "id_sensor": 9,
+    "tipo": "Proximidade",
+    "fabricante": "ProxiTech"
+  },
+  {
+    "id_sensor": 10,
+    "tipo": "Umidade",
+    "fabricante": "ClimaSens"
+  }
+]

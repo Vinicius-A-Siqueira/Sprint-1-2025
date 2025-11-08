@@ -1,0 +1,72 @@
+[
+  {
+    "id_camera": 1,
+    "localizacao": "Pátio A - SP - Zona Norte",
+    "modelo": "Modelo X100",
+    "patio_id_patio": 1,
+    "patio_id_filial": 1
+  },
+  {
+    "id_camera": 2,
+    "localizacao": "Pátio B - SP - Zona Sul",
+    "modelo": "Modelo X200",
+    "patio_id_patio": 2,
+    "patio_id_filial": 1
+  },
+  {
+    "id_camera": 3,
+    "localizacao": "Pátio Centro - RJ - Centro",
+    "modelo": "Modelo X300",
+    "patio_id_patio": 3,
+    "patio_id_filial": 2
+  },
+  {
+    "id_camera": 4,
+    "localizacao": "Pátio Norte - BH - Rodovia",
+    "modelo": "Modelo X400",
+    "patio_id_patio": 4,
+    "patio_id_filial": 3
+  },
+  {
+    "id_camera": 5,
+    "localizacao": "Pátio Sul - POA - Bairro Ipiranga",
+    "modelo": "Modelo X500",
+    "patio_id_patio": 5,
+    "patio_id_filial": 4
+  },
+  {
+    "id_camera": 6,
+    "localizacao": "Pátio Leste - CTB - Rua das Flores",
+    "modelo": "Modelo X600",
+    "patio_id_patio": 6,
+    "patio_id_filial": 5
+  },
+  {
+    "id_camera": 7,
+    "localizacao": "Pátio Oeste - SSA - Avenida Contorno",
+    "modelo": "Modelo X700",
+    "patio_id_patio": 7,
+    "patio_id_filial": 6
+  },
+  {
+    "id_camera": 8,
+    "localizacao": "Pátio Central - BSB - Eixo Monumental",
+    "modelo": "Modelo X800",
+    "patio_id_patio": 8,
+    "patio_id_filial": 7
+  },
+  {
+    "id_camera": 9,
+    "localizacao": "Pátio Industrial - MAO - Distrito Industrial",
+    "modelo": "Modelo X900",
+    "patio_id_patio": 9,
+    "patio_id_filial": 8
+  },
+  {
+    "id_camera": 10,
+    "localizacao": "Pátio Boa Viagem - REC - Avenida Beira Mar",
+    "modelo": "Modelo X1000",
+    "patio_id_patio": 10,
+    "patio_id_filial": 9
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id_leitura": 1,
+    "data_hora": "2025-05-01T08:30:00"
+  },
+  {
+    "id_leitura": 2,
+    "data_hora": "2025-05-02T09:45:00"
+  },
+  {
+    "id_leitura": 3,
+    "data_hora": "2025-05-03T10:00:00"
+  },
+  {
+    "id_leitura": 4,
+    "data_hora": "2025-05-04T11:15:00"
+  },
+  {
+    "id_leitura": 5,
+    "data_hora": "2025-05-05T12:30:00"
+  },
+  {
+    "id_leitura": 6,
+    "data_hora": "2025-05-06T13:45:00"
+  },
+  {
+    "id_leitura": 7,
+    "data_hora": "2025-05-07T14:00:00"
+  },
+  {
+    "id_leitura": 8,
+    "data_hora": "2025-05-08T15:30:00"
+  },
+  {
+    "id_leitura": 9,
+    "data_hora": "2025-05-09T16:45:00"
+  },
+  {
+    "id_leitura": 10,
+    "data_hora": "2025-05-10T17:00:00"
+  }
+]

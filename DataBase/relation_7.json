@@ -1,0 +1,42 @@
+[
+  {
+    "sensor_iot_id_sensor": 1,
+    "leitura_id_leitura": 1
+  },
+  {
+    "sensor_iot_id_sensor": 2,
+    "leitura_id_leitura": 2
+  },
+  {
+    "sensor_iot_id_sensor": 3,
+    "leitura_id_leitura": 3
+  },
+  {
+    "sensor_iot_id_sensor": 4,
+    "leitura_id_leitura": 4
+  },
+  {
+    "sensor_iot_id_sensor": 5,
+    "leitura_id_leitura": 5
+  },
+  {
+    "sensor_iot_id_sensor": 6,
+    "leitura_id_leitura": 6
+  },
+  {
+    "sensor_iot_id_sensor": 7,
+    "leitura_id_leitura": 7
+  },
+  {
+    "sensor_iot_id_sensor": 8,
+    "leitura_id_leitura": 8
+  },
+  {
+    "sensor_iot_id_sensor": 9,
+    "leitura_id_leitura": 9
+  },
+  {
+    "sensor_iot_id_sensor": 10,
+    "leitura_id_leitura": 10
+  }
+]

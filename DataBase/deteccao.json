@@ -1,0 +1,92 @@
+[
+  {
+    "id_deteccao": 1,
+    "data_hora": "2025-05-13T08:00:00",
+    "coordenadas": "Lat: -23.5505, Long: -46.6333",
+    "moto_id_moto": 1,
+    "camera_id_camera": 1,
+    "camera_id_patio": 1,
+    "camera_id_filial": 1
+  },
+  {
+    "id_deteccao": 2,
+    "data_hora": "2025-05-13T08:15:00",
+    "coordenadas": "Lat: -23.5506, Long: -46.6334",
+    "moto_id_moto": 2,
+    "camera_id_camera": 2,
+    "camera_id_patio": 2,
+    "camera_id_filial": 1
+  },
+  {
+    "id_deteccao": 3,
+    "data_hora": "2025-05-13T08:30:00",
+    "coordenadas": "Lat: -22.9068, Long: -43.1729",
+    "moto_id_moto": 3,
+    "camera_id_camera": 3,
+    "camera_id_patio": 3,
+    "camera_id_filial": 2
+  },
+  {
+    "id_deteccao": 4,
+    "data_hora": "2025-05-13T08:45:00",
+    "coordenadas": "Lat: -19.9167, Long: -43.9345",
+    "moto_id_moto": 4,
+    "camera_id_camera": 4,
+    "camera_id_patio": 4,
+    "camera_id_filial": 3
+  },
+  {
+    "id_deteccao": 5,
+    "data_hora": "2025-05-13T09:00:00",
+    "coordenadas": "Lat: -30.0346, Long: -51.2177",
+    "moto_id_moto": 5,
+    "camera_id_camera": 5,
+    "camera_id_patio": 5,
+    "camera_id_filial": 4
+  },
+  {
+    "id_deteccao": 6,
+    "data_hora": "2025-05-13T09:15:00",
+    "coordenadas": "Lat: -25.4284, Long: -49.2733",
+    "moto_id_moto": 6,
+    "camera_id_camera": 6,
+    "camera_id_patio": 6,
+    "camera_id_filial": 5
+  },
+  {
+    "id_deteccao": 7,
+    "data_hora": "2025-05-13T09:30:00",
+    "coordenadas": "Lat: -12.9714, Long: -38.5014",
+    "moto_id_moto": 7,
+    "camera_id_camera": 7,
+    "camera_id_patio": 7,
+    "camera_id_filial": 6
+  },
+  {
+    "id_deteccao": 8,
+    "data_hora": "2025-05-13T09:45:00",
+    "coordenadas": "Lat: -15.7942, Long: -47.8822",
+    "moto_id_moto": 8,
+    "camera_id_camera": 8,
+    "camera_id_patio": 8,
+    "camera_id_filial": 7
+  },
+  {
+    "id_deteccao": 9,
+    "data_hora": "2025-05-13T10:00:00",
+    "coordenadas": "Lat: -3.1190, Long: -60.0217",
+    "moto_id_moto": 9,
+    "camera_id_camera": 9,
+    "camera_id_patio": 9,
+    "camera_id_filial": 8
+  },
+  {
+    "id_deteccao": 10,
+    "data_hora": "2025-05-13T10:15:00",
+    "coordenadas": "Lat: -8.0476, Long: -34.8770",
+    "moto_id_moto": 10,
+    "camera_id_camera": 10,
+    "camera_id_patio": 10,
+    "camera_id_filial": 9
+  }
+]

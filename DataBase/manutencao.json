@@ -1,0 +1,62 @@
+[
+  {
+    "id_manutencao": 1,
+    "data": "2025-01-15",
+    "descricao": "Troca de óleo e revisão básica.",
+    "moto_id_moto": 1
+  },
+  {
+    "id_manutencao": 2,
+    "data": "2025-02-10",
+    "descricao": "Substituição de pastilhas de freio.",
+    "moto_id_moto": 2
+  },
+  {
+    "id_manutencao": 3,
+    "data": "2025-03-05",
+    "descricao": "Reparo no sistema de ignição.",
+    "moto_id_moto": 3
+  },
+  {
+    "id_manutencao": 4,
+    "data": "2025-03-20",
+    "descricao": "Alinhamento e balanceamento.",
+    "moto_id_moto": 4
+  },
+  {
+    "id_manutencao": 5,
+    "data": "2025-04-01",
+    "descricao": "Troca da bateria.",
+    "moto_id_moto": 5
+  },
+  {
+    "id_manutencao": 6,
+    "data": "2025-04-18",
+    "descricao": "Limpeza e ajuste do carburador.",
+    "moto_id_moto": 6
+  },
+  {
+    "id_manutencao": 7,
+    "data": "2025-04-25",
+    "descricao": "Verificação do sistema elétrico.",
+    "moto_id_moto": 7
+  },
+  {
+    "id_manutencao": 8,
+    "data": "2025-05-01",
+    "descricao": "Substituição de corrente e coroa.",
+    "moto_id_moto": 8
+  },
+  {
+    "id_manutencao": 9,
+    "data": "2025-05-05",
+    "descricao": "Pintura e reparo de carenagem.",
+    "moto_id_moto": 9
+  },
+  {
+    "id_manutencao": 10,
+    "data": "2025-05-10",
+    "descricao": "Revisão geral preventiva.",
+    "moto_id_moto": 10
+  }
+]

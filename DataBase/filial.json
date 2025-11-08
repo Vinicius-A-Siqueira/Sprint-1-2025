@@ -1,0 +1,52 @@
+[
+  {
+    "id_filial": 1,
+    "nome": "Matriz São Paulo",
+    "endereco": "Rua Augusta, 1234 - São Paulo, SP"
+  },
+  {
+    "id_filial": 2,
+    "nome": "Filial Rio de Janeiro",
+    "endereco": "Avenida Atlântica, 567 - Rio de Janeiro, RJ"
+  },
+  {
+    "id_filial": 3,
+    "nome": "Filial Belo Horizonte",
+    "endereco": "Avenida Afonso Pena, 890 - Belo Horizonte, MG"
+  },
+  {
+    "id_filial": 4,
+    "nome": "Filial Porto Alegre",
+    "endereco": "Rua dos Andradas, 1011 - Porto Alegre, RS"
+  },
+  {
+    "id_filial": 5,
+    "nome": "Filial Curitiba",
+    "endereco": "Avenida Paraná, 1213 - Curitiba, PR"
+  },
+  {
+    "id_filial": 6,
+    "nome": "Filial Salvador",
+    "endereco": "Avenida Sete de Setembro, 1415 - Salvador, BA"
+  },
+  {
+    "id_filial": 7,
+    "nome": "Filial Brasília",
+    "endereco": "Setor Comercial Sul, Quadra 6, Bloco A - Brasília, DF"
+  },
+  {
+    "id_filial": 8,
+    "nome": "Filial Manaus",
+    "endereco": "Avenida Amazonas, 1617 - Manaus, AM"
+  },
+  {
+    "id_filial": 9,
+    "nome": "Filial Recife",
+    "endereco": "Avenida Boa Viagem, 1819 - Recife, PE"
+  },
+  {
+    "id_filial": 10,
+    "nome": "Filial Campinas",
+    "endereco": "Avenida Brasil, 2021 - Campinas, SP"
+  }
+]
