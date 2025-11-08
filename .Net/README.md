@@ -1,10 +1,6 @@
-# 🚀 Mottu Fleet Management System - CP5
+# Sprint-2025
 
-**MongoDB e Health Check com .NET - 2025**
-
-Uma aplicação moderna de gerenciamento de frotas de motocicletas desenvolvida com ASP.NET Core, MongoDB e seguindo os princípios de Clean Architecture e Domain-Driven Design (DDD).
-
----
+![image](https://github.com/user-attachments/assets/6335eded-1ce5-41f1-8fbd-7921804f3f67)
 
 ## 👥 Integrantes
 
